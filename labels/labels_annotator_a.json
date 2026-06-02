@@ -1,0 +1,14 @@
+{
+  "human_labeler": "Annotator A",
+  "trajectory_total_actions": 56,
+  "flagged": {
+    "0":  {"pause": false, "reflect": false, "clarify": true},
+    "2":  {"pause": false, "reflect": true,  "clarify": false},
+    "9":  {"pause": true,  "reflect": true,  "clarify": false},
+    "18": {"pause": true,  "reflect": false, "clarify": false},
+    "29": {"pause": false, "reflect": true,  "clarify": false},
+    "33": {"pause": true,  "reflect": true,  "clarify": false},
+    "42": {"pause": true,  "reflect": true,  "clarify": false},
+    "44": {"pause": false, "reflect": false, "clarify": true}
+  }
+}

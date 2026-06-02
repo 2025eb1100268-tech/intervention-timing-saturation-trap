@@ -1,0 +1,21 @@
+{
+  "human_labeler": "Annotator C",
+  "trajectory_total_actions": 56,
+  "flagged": {
+    "0":  {"pause": false, "reflect": true,  "clarify": false},
+    "2":  {"pause": false, "reflect": true,  "clarify": false},
+    "3":  {"pause": false, "reflect": false, "clarify": true},
+    "4":  {"pause": false, "reflect": false, "clarify": true},
+    "5":  {"pause": false, "reflect": false, "clarify": true},
+    "18": {"pause": false, "reflect": false, "clarify": true},
+    "22": {"pause": false, "reflect": false, "clarify": true},
+    "28": {"pause": false, "reflect": false, "clarify": true},
+    "30": {"pause": false, "reflect": false, "clarify": true},
+    "40": {"pause": false, "reflect": false, "clarify": true},
+    "43": {"pause": false, "reflect": false, "clarify": true},
+    "45": {"pause": false, "reflect": false, "clarify": true},
+    "46": {"pause": false, "reflect": false, "clarify": true},
+    "48": {"pause": false, "reflect": false, "clarify": true},
+    "55": {"pause": false, "reflect": false, "clarify": true}
+  }
+}
