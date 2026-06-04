@@ -5,7 +5,8 @@ Subjectivity of Intervention Timing: Why Affect-Based Triggers and LLM Judges
 Fail to Time Interventions on Autonomous Agents"* (Manvendra Modgil, Modint
 Intelligence).
 
-**arXiv:** arXiv:XXXX.XXXXX
+**arXiv:** arXiv:2606.04296
+Paper: https://arxiv.org/abs/2606.04296
 
 This repository releases the human annotation data, the analysis scripts, and
 the computed result artifacts behind the paper's empirical claims. It is
