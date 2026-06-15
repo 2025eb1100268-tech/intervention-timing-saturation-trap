@@ -1,21 +1,61 @@
-# The Saturation Trap and the Subjectivity of Intervention Timing
+# Affect-Based Runtime Monitoring of Autonomous Agents — Reproducibility Releases
 
-Reproducibility release for the paper *"The Saturation Trap and the
-Subjectivity of Intervention Timing: Why Affect-Based Triggers and LLM Judges
-Fail to Time Interventions on Autonomous Agents"* (Manvendra Modgil, Modint
-Intelligence).
+This repository holds the public reproducibility material for two companion papers
+by **Manvendra Modgil (Modint Intelligence)** on why affect-/state-based runtime
+monitors fail to time interventions on autonomous coding agents.
 
-**arXiv:** arXiv:2606.04296
-Paper: https://arxiv.org/abs/2606.04296
+| | Paper | Material |
+|---|---|---|
+| **Paper 1** | *The Saturation Trap and the Subjectivity of Intervention Timing* — arXiv:[2606.04296](https://arxiv.org/abs/2606.04296) | top level: `labels/`, `scripts/`, `results/` |
+| **Paper 2** | *Bistable by Construction: Wall-Clock-Calibrated State Monitors Have No Moment-Detection Regime at Agent Cadence* (companion to Paper 1) | `paper2/` |
 
-This repository releases the human annotation data, the analysis scripts, and
-the computed result artifacts behind the paper's empirical claims. It is
-released for transparency of method and to allow independent recomputation of
-the inter-rater reliability statistics.
+Both papers use the same proprietary HEART engine as a fixed, unmodified diagnostic
+probe (see "Not included" below); neither release ships the engine.
 
 ---
 
-## Contents
+## Paper 2 — `paper2/`
+
+Paper 2 corrects and extends Paper 1: an audit found the engine received
+`Δt = 0` between actions, so its decay never ran and the published "Saturation
+Trap" is a pure-accumulator result. Paper 2 treats the flaw as an experiment
+design and maps the family of monitors indexed by inter-action time. See
+[`paper2/README.md`](paper2/README.md) for the full layout. In brief:
+
+- **`paper2/paper/`** — LaTeX source (`main.tex`, `sections/`, `references.bib`),
+  the 5 figures (PDF + PNG), build instructions (`BUILD.md`), and the markdown draft.
+- **`paper2/prereg/`** — pre-registration documents (Phases 7–8) and the `Δt = 0`
+  audit/erratum (`DT_AUDIT.md`), verbatim.
+- **`paper2/reports/`** — the empirical record: the uniform-cadence sweep, measured
+  real cadence, burst-structure replay, class-level generality instruments, the
+  analytic scaling rule, and the pipeline/transition reports.
+- **`paper2/fig_data/`** — the CSVs behind every figure.
+- **`paper2/heart_instrument/`** — the Claude Code hook logger, JSONL→trajectory
+  converter, instrumented agent runner, and live HEART monitor.
+- **`paper2/scripts/`** — the analysis scripts (transparency; engine not shipped).
+- **`paper2/tests/`** — self-contained unit tests (`test_generality.py`,
+  `test_transition_triggers.py`, `test_cooldown.py`). The generality tests run with
+  no engine: `python -m pytest paper2/tests/test_generality.py -q` (14 passed).
+- **`paper2/live_demo/`** — a real instrumented run where the edge trigger (T3)
+  fires once at saturation onset while the level trigger is true on 25/32 actions.
+
+> Note: the human-annotation overlap analysis in `paper2/reports/TRANSITION_REPORT.md`
+> is redacted in this release pending finalization of the annotation study.
+
+---
+
+## Paper 1 — top level
+
+Reproducibility release for the paper *"The Saturation Trap and the Subjectivity of
+Intervention Timing: Why Affect-Based Triggers and LLM Judges Fail to Time
+Interventions on Autonomous Agents"* (Manvendra Modgil, Modint Intelligence).
+
+**arXiv:** arXiv:[2606.04296](https://arxiv.org/abs/2606.04296)
+
+This repository releases the human annotation data, the analysis scripts, and the
+computed result artifacts behind the paper's empirical claims. It is released for
+transparency of method and to allow independent recomputation of the inter-rater
+reliability statistics.
 
 ### `labels/`
 The three annotators' intervention-timing labels for trajectory
@@ -33,38 +73,30 @@ Annotator identities are anonymized to **A**, **B**, **C** to match the paper.
 - `krippendorff_alpha.py` — three-rater Krippendorff's α (nominal/binary,
   implemented from scratch via the coincidence-matrix method) with a Cohen's κ
   cross-check. **Self-contained**; runs on the label files alone.
-- `saturation_replay.py`, `saturation_all.py` — the State Saturation Trap
-  replay and the five-trajectory aggregator.
+- `saturation_replay.py`, `saturation_all.py` — the State Saturation Trap replay
+  and the five-trajectory aggregator.
 - `llm_calibration.py`, `llm_calibration_sweep.py`, `sweep_analyze.py` — the
   zero-shot LLM-as-judge calibration and the cross-model sweep.
-- `replay_with_guidelines.py`, `calibration_analysis.py` — the per-action
-  trigger replay and calibration scoring.
+- `replay_with_guidelines.py`, `calibration_analysis.py` — the per-action trigger
+  replay and calibration scoring.
 
-Every script except `irr.py` and `krippendorff_alpha.py` imports the
-proprietary HEART engine and therefore **cannot be run from this repository**;
-each such import is marked with the comment
-`# requires the proprietary HEART engine (not included; see README)`. These
-scripts are released for transparency of method, not as runnable artifacts.
+Every script except `irr.py` and `krippendorff_alpha.py` imports the proprietary
+HEART engine and therefore **cannot be run from this repository**; each such import
+is marked with the comment
+`# requires the proprietary HEART engine (not included; see README)`. These scripts
+are released for transparency of method, not as runnable artifacts.
 
 ### `results/`
-- `IRR_REPORT.md` — pairwise Cohen's κ report (regenerated from the anonymized
-  labels).
+- `IRR_REPORT.md` — pairwise Cohen's κ report (regenerated from the anonymized labels).
 - `KRIPPENDORFF_REPORT.md` — three-rater Krippendorff's α report.
-- `SATURATION_ALL.md` — State Saturation Trap summary across all five pilot
-  trajectories.
-- `SWEEP_RESULTS.md` — cross-model LLM-as-judge sweep
-  (gpt-5.4-mini / gpt-5.4 / Claude × windowed / macro).
-- `CLAUDE_CLEAN_V2_RESULTS.md` — the methodologically clean (fully isolated)
-  Claude judge re-run that is primary in the paper.
-- `saturation_astropy__astropy-{12907,13033,13236,13398,13453}.json` — the
-  per-action engine-state replays for the five trajectories.
+- `SATURATION_ALL.md` — State Saturation Trap summary across all five pilot trajectories.
+- `SWEEP_RESULTS.md` — cross-model LLM-as-judge sweep (gpt-5.4-mini / gpt-5.4 / Claude × windowed / macro).
+- `CLAUDE_CLEAN_V2_RESULTS.md` — the methodologically clean (fully isolated) Claude judge re-run that is primary in the paper.
+- `saturation_astropy__astropy-{12907,13033,13236,13398,13453}.json` — the per-action engine-state replays for the five trajectories.
 
----
-
-## Reproducing the inter-rater reliability
-
-Both self-contained scripts run on the label files with no dependencies beyond
-the Python standard library:
+### Reproducing the inter-rater reliability
+Both self-contained scripts run on the label files with no dependencies beyond the
+Python standard library:
 
 ```bash
 # Pairwise Cohen's kappa + action-overlap map
@@ -75,62 +107,33 @@ python scripts/irr.py \
 
 # Three-rater Krippendorff's alpha (+ Cohen cross-check)
 python scripts/krippendorff_alpha.py
-```
-
 Expected (paper §7):
 
-| Statistic | Value |
-|---|---|
-| Cohen's κ, A↔B (location) | +0.349 |
-| Cohen's κ, A↔C (location) | +0.092 |
-| Cohen's κ, B↔C (location) | −0.181 |
-| Krippendorff's α, location (any-type) | +0.047 |
-| Krippendorff's α, reflect | +0.226 |
-| Krippendorff's α, pause | −0.025 (degenerate; C never used pause) |
-| Krippendorff's α, clarify | −0.106 (below chance) |
+Statistic	Value
+Cohen's κ, A↔B (location)	+0.349
+Cohen's κ, A↔C (location)	+0.092
+Cohen's κ, B↔C (location)	−0.181
+Krippendorff's α, location (any-type)	+0.047
+Krippendorff's α, reflect	+0.226
+Krippendorff's α, pause	−0.025 (degenerate; C never used pause)
+Krippendorff's α, clarify	−0.106 (below chance)
+krippendorff_alpha.py re-derives the three pairwise Cohen's κ values and prints
+PASS/FAIL against the above as a self-check.
 
-`krippendorff_alpha.py` re-derives the three pairwise Cohen's κ values and
-prints `PASS`/`FAIL` against the above as a self-check.
+Not included: the HEART engine
+The diagnostic probe used in both papers — the HEART continuous 18-dimensional
+affective-dynamics engine, its observer/adapter, and its guideline-trigger layer —
+is proprietary and is not part of this release. It is the subject of Indian
+Patent Application No. 202521098101. In the papers it is used only as a fixed,
+unmodified diagnostic probe; no engine parameter or trigger threshold was tuned in
+any experiment.
 
----
+Consequently, the engine-dependent scripts (everything except irr.py,
+krippendorff_alpha.py, and the self-contained Paper 2 generality/transition tests)
+are published to document the exact method, but cannot be executed without the
+engine. The results/ and paper2/reports/ artifacts they produced are included so
+their outputs are inspectable.
 
-## Not included: the HEART engine
-
-The diagnostic probe used in the paper — the HEART continuous 18-dimensional
-affective-dynamics engine, its observer/adapter, and its guideline-trigger
-layer — is **proprietary and is not part of this release**. It is the subject
-of **Indian Patent Application No. 202521098101**. In the paper it is used only
-as a fixed, unmodified diagnostic probe; no engine parameter or trigger
-threshold was tuned in any experiment.
-
-Consequently, the engine-dependent scripts in `scripts/` (everything except
-`irr.py` and `krippendorff_alpha.py`) are published to document the exact
-method, but cannot be executed without the engine. The `results/` artifacts
-they produced are included so their outputs are inspectable.
-
-The raw SWE-bench-Verified trajectory traces are the property of their
-respective sources and are not redistributed here; only the per-action
-engine-state replays (`results/saturation_*.json`) and the human labels are
-released.
-
----
-
-## Citation
-
-```bibtex
-@misc{modgil2026saturationtrap,
-  title  = {The Saturation Trap and the Subjectivity of Intervention Timing:
-            Why Affect-Based Triggers and LLM Judges Fail to Time Interventions
-            on Autonomous Agents},
-  author = {Modgil, Manvendra},
-  year   = {2026},
-  eprint = {XXXX.XXXXX},
-  archivePrefix = {arXiv}
-}
-```
-
-## License
-
-MIT — see [LICENSE](LICENSE). The MIT license covers the contents of this
-repository only; it does **not** grant any rights to the HEART engine, which is
-proprietary (see above).
+The raw SWE-bench-Verified trajectory traces are the property of their respective
+sources and are not redistributed here; only the per-action engine-state replays
+(results/saturation_*.json, paper2/fig_data/) and the human labels are released.
