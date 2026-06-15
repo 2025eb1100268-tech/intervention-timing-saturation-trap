@@ -137,3 +137,19 @@ their outputs are inspectable.
 The raw SWE-bench-Verified trajectory traces are the property of their respective
 sources and are not redistributed here; only the per-action engine-state replays
 (results/saturation_*.json, paper2/fig_data/) and the human labels are released.
+
+Citation
+
+@misc{modgil2026saturationtrap,
+  title         = {The Saturation Trap and the Subjectivity of Intervention Timing:
+                   Why Affect-Based Triggers and LLM Judges Fail to Time Interventions
+                   on Autonomous Agents},
+  author        = {Modgil, Manvendra},
+  year          = {2026},
+  eprint        = {2606.04296},
+  archivePrefix = {arXiv}
+}
+License
+MIT — see LICENSE. The MIT license covers the contents of this repository
+only; it does not grant any rights to the HEART engine, which is proprietary
+(see above).
