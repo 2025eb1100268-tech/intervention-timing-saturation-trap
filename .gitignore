@@ -30,3 +30,17 @@ Thumbs.db
 
 # Secrets
 .env
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+
+# pytest
+.pytest_cache/

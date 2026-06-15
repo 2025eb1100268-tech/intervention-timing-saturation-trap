@@ -1,0 +1,45 @@
+\section{Related Work}
+\label{sec:related}
+
+\textbf{Runtime oversight of agents.}
+A growing line of work interrupts an agent by checking its trajectory against
+safety conditions. AgentSpec~\cite{agentspec} compiles user-specified rules
+(trigger--predicate--enforce) and fires when a predicate matches the current
+action; AgentHarm~\cite{agentharm} benchmarks harmful agent behavior that such
+monitors aim to catch. These systems threshold per-action predicates rather
+than an accumulated, time-decayed statistic, and so lie outside the
+leaky-integrator class our result concerns. ProbGuard~\cite{probguard} is the
+closest in spirit---it predicts the probability of reaching an unsafe state and
+intervenes when that probability crosses a threshold---but the quantity it
+thresholds is an \emph{instantaneous} predicted probability recomputed from the
+current symbolic state at each step, not a statistic that integrates past
+evidence with a wall-clock decay. It is therefore also outside our class: it
+has no half-life to mis-calibrate against cadence, and our bistability result
+does not apply to it. Our prior work~\cite{P1} is the wall-clock-calibrated
+member whose failure this paper dissects.
+
+\textbf{Sequential change detection.}
+The classical home of edge-versus-level detection is the cumulative-sum chart
+of Page~\cite{page1954}, with asymptotic optimality established by
+Lorden~\cite{lorden1971} and the modern landscape surveyed by Truong et
+al.~\cite{truong2020}. CUSUM is defined in \emph{sample time}---its drift term
+is subtracted once per observation---which is exactly why our Section~7 control
+(I2) is cadence-invariant: it is classical CUSUM behaving classically. We claim
+no novelty for edge detection or for CUSUM; the contribution is the
+\emph{calibration-mismatch} analysis that separates sample-time from
+wall-clock-time dynamics at \emph{agent} cadence, where inter-action intervals
+vary across deployments by orders of magnitude. The two-threshold hysteresis
+our T3 trigger uses is the Schmitt trigger~\cite{schmitt1938}, the canonical
+bistable detector with separate set/reset levels.
+
+\textbf{Calibrated-decay monitors and label variation.}
+Wall-clock-calibrated leaky integrators---exponential-moving-average behavioral
+baselines and drift statistics with fixed half-lives---are common in production
+agent and service monitoring; they are precisely the family our analysis places
+at risk when the sampling cadence is not the cadence the half-life was tuned
+for. Finally, our evaluation of whether any trigger \emph{recovers human
+intervention timing} inherits the framing of LLM-as-judge
+evaluation~\cite{zheng2023} and of human label
+variation~\cite{plank2022,krippendorff2004}: as in~\cite{P1}, the target itself
+is a low-reliability construct, so repairing the detector (Section~9) does not,
+and cannot, repair the target.

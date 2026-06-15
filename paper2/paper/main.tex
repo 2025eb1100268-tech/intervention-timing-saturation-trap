@@ -1,0 +1,90 @@
+\documentclass{article}
+
+% --- NeurIPS-workshop-style preprint ---
+% NOTE: neurips_2024.sty here is a self-contained minimal stand-in (the
+% official style file is not redistributable in this environment). For
+% submission, drop in the official neurips_2024.sty from the CfP; the body
+% below uses only standard macros and compiles against either.
+\usepackage[preprint]{neurips_2024}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{natbib}
+\graphicspath{{figures/}}
+
+\hypersetup{colorlinks=true, linkcolor=blue!50!black,
+            citecolor=blue!50!black, urlcolor=blue!50!black}
+
+\title{Bistable by Construction: Wall-Clock-Calibrated State Monitors\\
+Have No Moment-Detection Regime at Agent Cadence}
+
+\author{%
+  Manvendra Modgil\\
+  Modint Intelligence\\
+  \texttt{manvendramodgil.ai@gmail.com}\\
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Runtime monitors for autonomous agents commonly threshold an accumulated
+internal state---a behavioral baseline, a drift statistic, or, in our prior
+work, a modeled affective state. We previously reported a State Saturation
+Trap: threshold-on-state triggers over a continuous affect engine become
+near-constant alarms on SWE-bench debugging agents~\cite{P1}. A post-release
+audit of our replay pipeline found that the engine received $\Delta t = 0$
+between actions, so its exponential decay never operated: the published trap is
+a pure-accumulator result. We correct the record (erratum in \cite{P1}-v2) and
+treat the flaw as an experiment design. The key variable it exposes is one the
+monitoring literature does not track: whether the monitor's dynamics are
+calibrated in \emph{sample time} (per observation, as in classical CUSUM) or in
+\emph{wall-clock time} (half-lives in seconds, as in affect models and EMA
+baselines). On fixed-rate streams these coincide; on agent streams---where
+inter-action time varies by orders of magnitude across deployments---they do
+not. A pre-registered sweep over uniform inter-action intervals
+($\Delta t \in \{0..600\}$\,s) on 20 trajectories shows the
+wall-clock-calibrated level trigger has exactly two regimes: at
+$\Delta t \le 1$\,s it is a constant alarm (trap holds 20/20; median 18 firings
+per run); at $\Delta t \ge 60$\,s it is silent (the state never reaches
+threshold). Every trajectory's critical $\Delta t$ lies in $(1, 30]$\,s.
+Hook-instrumented real agent runs measure inter-action latency at median
+1.53\,s (p90 2.33\,s)---real autonomous coding cadence sits firmly inside the
+trap regime, vindicating \cite{P1}'s empirical finding under a corrected
+mechanism---and replaying real ordered latency sequences shows the regimes are
+stable within a run (19/20 clean single-crossing accumulators; bounded flicker
+only when bursts are scaled into the critical band, exploratory). The regime is
+therefore selected by the deployment's latency profile, not by within-run
+noise. The structure is a property of the calibration class, not the engine: a
+minimal wall-clock leaky accumulator over the raw per-action error stream
+reproduces the same cliff (20/20 trap at $\Delta t = 0$; 0/20 crossings at
+$\Delta t \ge 60$; critical band of the same order of magnitude, Spearman
+$\rho = 0.530$ with the engine's), while a sample-time CUSUM over the identical
+stream is exactly invariant across the entire $\Delta t$ grid (20/20 identical
+fire patterns). A rising-edge trigger with hysteresis at the identical
+threshold fires 0--3 times per trajectory in every condition tested, including
+a live instrumented demo. A zero-parameter balance model,
+$r \ge (1 - 2^{-\Delta t/T_{1/2}})(\theta - B)$, captures the transition's order
+of magnitude but not per-trajectory variation. We conclude that
+wall-clock-calibrated leaky-integrator monitors admit no operating regime in
+which they act as moment detectors on agent streams; transition detection
+escapes the trap at every cadence, though---consistent with \cite{P1}'s
+inter-rater results---it does not thereby recover human intervention timing.
+\end{abstract}
+
+\input{sections/body}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\input{sections/appendix}
+
+\end{document}

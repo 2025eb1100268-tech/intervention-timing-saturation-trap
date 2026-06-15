@@ -1,0 +1,61 @@
+\section{Appendix}
+
+\subsection{Trajectory selection}
+15 selected, 11 skipped for length, 0 parse failures (first 15 by instance id
+with 25--70 actions that parse cleanly, excluding the 5 pilot trajectories).
+Full skip log released with the artifacts.
+
+\subsection{Per-trajectory tables}
+Full saturation table ($\Delta t = 0$), per-trajectory critical-$\Delta t$
+intervals, and zero-signal coverage are released as
+\texttt{SCALE\_REPORT.md} and the \texttt{fig\_data/} CSVs.
+
+\subsection{Pre-registration provenance and hypothesis scorecard}
+\label{app:prereg}
+Pre-registration documents for all phases are released verbatim
+(\texttt{PREREGISTRATION\_PHASE7.md}, \texttt{PREREGISTRATION\_PHASE8.md}).
+Full hypothesis scorecard: H1 partial (T3 yes; T1 borderline; T2 vacuous; T4
+no), H2 failed, H3 superseded by the $\Delta t$ audit, H4 pending annotation, H5
+not supported (with the C4 exploratory complement), H6 supported, H7 partial
+(two-regime supported; strict band conjunct failed 16/20), H8 supported (exact
+invariance 20/20), H9 supported (max 2).
+
+\paragraph{Provenance check for the Section~\ref{sec:burst} disclosure (resolving
+the draft's \texttt{[CONFIRM]} marker).} The released
+\texttt{PREREGISTRATION\_PHASE7.md} states H5 and H6 verbatim as ``\emph{H5:
+under C2/C3, A6 exhibits flicker (median crossing count $>2$) on trajectories
+whose uniform-$\Delta t$ critical interval brackets the $\Delta t$ median}'' and
+``\emph{H6: T3 net fire count remains $\le 3$ under all conditions},'' which are
+exactly the hypotheses scored in \texttt{NONUNIFORM\_REPORT.md}; C4 and the
+``analytic expectation'' subsection are present as a separately labeled
+\emph{exploratory} block. \textbf{Caveat for the author:} the artifact tree was
+\emph{not} under version control during the study, so a git diff of this file
+does not exist. The evidence supporting ``unchanged before execution'' is
+therefore (i) the file's text matches the report's scored wording exactly, and
+(ii) filesystem modification times order the pre-registration
+(\texttt{2026-06-10 21:26}) before the results report
+(\texttt{2026-06-10 21:30}). The draft's phrase ``git-timestamped'' in
+Section~\ref{sec:setup} should be softened to ``timestamped'' (or the repository
+placed under git and the prereg commits cited) before submission, since
+filesystem mtimes are weaker provenance than signed commits.
+
+\subsection{Scaling rule}
+Derivation and both estimators (full-trajectory $r$ and pre-saturation $r$),
+with censoring diagnostics, in \texttt{ANALYTIC\_DT\_REPORT.md}.
+
+\subsection{$\Delta t$ audit}
+Code-path trace with line references and the erratum text in
+\texttt{DT\_AUDIT.md}.
+
+\subsection{Instrumentation}
+Hook design, tool-name mapping table, and converter limitations (empty
+thoughts; A9 reasoning-feature triggers inapplicable to hook traces); timing
+distributions per run and per tool type in \texttt{data/live\_runs/}.
+
+\subsection{Non-uniform replay}
+Condition construction, seeds, per-condition tables, and the boundary case in
+\texttt{NONUNIFORM\_REPORT.md}.
+
+\subsection{Generality instruments}
+Error-stream statistics per trajectory, I1/I2 definitions and unit tests, full
+Tables A--D, and the Spearman computation in \texttt{GENERALITY\_REPORT.md}.

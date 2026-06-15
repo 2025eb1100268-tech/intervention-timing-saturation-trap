@@ -1,0 +1,145 @@
+% Paper 2 references. Every entry below was verified against arXiv / the
+% publisher / Project Euclid during the final rendering pass (see the
+% citation-verification log in the Phase-8 report). Items flagged [VERIFY]
+% could not be fully confirmed and must be checked before camera-ready.
+
+% ---- Prior work (self) ----
+@misc{P1,
+  title        = {The Saturation Trap and the Subjectivity of Intervention
+                  Timing: Why Affect-Based Triggers and {LLM} Judges Fail to
+                  Time Interventions on Autonomous Agents},
+  author       = {Modgil, Manvendra},
+  year         = {2026},
+  eprint       = {2606.04296},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2606.04296}
+}
+
+% ---- Runtime oversight of autonomous agents ----
+@inproceedings{agentspec,
+  title        = {{AgentSpec}: Customizable Runtime Enforcement for Safe and
+                  Reliable {LLM} Agents},
+  author       = {Wang, Haoyu and Poskitt, Christopher M. and Sun, Jun},
+  booktitle    = {Proceedings of the 48th IEEE/ACM International Conference on
+                  Software Engineering (ICSE)},
+  year         = {2026},
+  eprint       = {2503.18666},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2503.18666; accepted to ICSE 2026}
+}
+
+@misc{probguard,
+  title        = {{ProbGuard}: Probabilistic Runtime Monitoring for {LLM}
+                  Agent Safety},
+  author       = {Wang, Haoyu and Poskitt, Christopher M. and Wei, Jiali and
+                  Sun, Jun},
+  year         = {2025},
+  eprint       = {2508.00500},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.AI},
+  note         = {arXiv:2508.00500. Note: arXiv:2508.00500 appears under the
+                  title ``ProbGuard'' on the abstract page and ``Pro2Guard''
+                  on an earlier PDF version; cite as ProbGuard per the current
+                  abstract page.}
+}
+
+@inproceedings{agentharm,
+  title        = {{AgentHarm}: A Benchmark for Measuring Harmfulness of {LLM}
+                  Agents},
+  author       = {Andriushchenko, Maksym and Souly, Alexandra and Dziemian,
+                  Mateusz and Duenas, Derek and Lin, Maxwell and Wang, Justin
+                  and Hendrycks, Dan and Zou, Andy and Kolter, Zico and
+                  Fredrikson, Matt and Winsor, Eric and Wynne, Jerome and Gal,
+                  Yarin and Davies, Xander},
+  booktitle    = {International Conference on Learning Representations (ICLR)},
+  year         = {2025},
+  eprint       = {2410.09024},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.LG},
+  note         = {arXiv:2410.09024}
+}
+
+% ---- Classical sequential change detection ----
+@article{page1954,
+  title        = {Continuous Inspection Schemes},
+  author       = {Page, E. S.},
+  journal      = {Biometrika},
+  volume       = {41},
+  number       = {1/2},
+  pages        = {100--115},
+  year         = {1954},
+  doi          = {10.1093/biomet/41.1-2.100}
+}
+
+@article{lorden1971,
+  title        = {Procedures for Reacting to a Change in Distribution},
+  author       = {Lorden, Gary},
+  journal      = {The Annals of Mathematical Statistics},
+  volume       = {42},
+  number       = {6},
+  pages        = {1897--1908},
+  year         = {1971},
+  doi          = {10.1214/aoms/1177693055}
+}
+
+@article{truong2020,
+  title        = {Selective Review of Offline Change Point Detection Methods},
+  author       = {Truong, Charles and Oudre, Laurent and Vayatis, Nicolas},
+  journal      = {Signal Processing},
+  volume       = {167},
+  pages        = {107299},
+  year         = {2020},
+  doi          = {10.1016/j.sigpro.2019.107299}
+}
+
+% ---- Hysteresis / bistable two-threshold detection ----
+@incollection{schmitt1938,
+  title        = {A Thermionic Trigger},
+  author       = {Schmitt, Otto H.},
+  journal      = {Journal of Scientific Instruments},
+  volume       = {15},
+  number       = {1},
+  pages        = {24--26},
+  year         = {1938},
+  doi          = {10.1088/0950-7671/15/1/305},
+  note         = {Origin of the two-threshold (hysteresis) trigger; the
+                  bistable primitive our edge trigger implements.}
+}
+
+% ---- LLM-as-judge and human label variation (P1 carry-forwards) ----
+@inproceedings{zheng2023,
+  title        = {Judging {LLM}-as-a-Judge with {MT}-Bench and Chatbot Arena},
+  author       = {Zheng, Lianmin and Chiang, Wei-Lin and Sheng, Ying and
+                  Zhuang, Siyuan and Wu, Zhanghao and Zhuang, Yonghao and Lin,
+                  Zi and Li, Zhuohan and Li, Dacheng and Xing, Eric P. and
+                  Zhang, Hao and Gonzalez, Joseph E. and Stoica, Ion},
+  booktitle    = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year         = {2023},
+  eprint       = {2306.05685},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CL},
+  note         = {arXiv:2306.05685}
+}
+
+@inproceedings{plank2022,
+  title        = {The ``Problem'' of Human Label Variation: On Ground Truth in
+                  Data, Modeling and Evaluation},
+  author       = {Plank, Barbara},
+  booktitle    = {Proceedings of the 2022 Conference on Empirical Methods in
+                  Natural Language Processing (EMNLP)},
+  pages        = {10671--10682},
+  year         = {2022},
+  doi          = {10.18653/v1/2022.emnlp-main.731},
+  note         = {[VERIFY page numbers and DOI before camera-ready --
+                  carried from [P1]; not re-verified in this pass.]}
+}
+
+@book{krippendorff2004,
+  title        = {Content Analysis: An Introduction to Its Methodology},
+  author       = {Krippendorff, Klaus},
+  edition      = {2nd},
+  publisher    = {Sage Publications},
+  year         = {2004}
+}

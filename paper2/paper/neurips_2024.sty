@@ -1,0 +1,31 @@
+% Minimal NeurIPS-style two-column-ish preprint style, self-contained so the
+% project compiles without the official neurips_2024.sty (which is not
+% redistributable here). For camera-ready, replace this file with the official
+% NeurIPS style file from the call-for-papers; the document body uses only the
+% standard \title/\author/\maketitle and a couple of helper macros defined
+% here, so swapping the style file requires no body changes.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{neurips_2024}[2024/05/01 minimal neurips-like preprint style]
+
+\RequirePackage{geometry}
+\geometry{letterpaper, margin=1in}
+\RequirePackage{times}            % Times text (NeurIPS uses a Times-like serif)
+\RequirePackage{microtype}
+\RequirePackage{titlesec}
+\RequirePackage{abstract}
+
+% NeurIPS-ish section formatting
+\titleformat{\section}{\normalfont\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{2.0ex plus 1ex minus .2ex}{1.2ex plus .2ex}
+
+% A boolean for "preprint" vs "final" parity with the official macro API
+\newif\if@preprint \@preprinttrue
+\DeclareOption{preprint}{\@preprinttrue}
+\DeclareOption{final}{\@preprintfalse}
+\ProcessOptions\relax
+
+\renewcommand{\abstractnamefont}{\normalfont\bfseries}
+\renewcommand{\abstracttextfont}{\normalfont\small}
+
+\endinput

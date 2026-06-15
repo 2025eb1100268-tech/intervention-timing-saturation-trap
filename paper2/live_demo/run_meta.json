@@ -1,0 +1,23 @@
+{
+  "run_id": "runE",
+  "repo": "more-itertools",
+  "model": "gpt-5.4-mini",
+  "bugs_specified": 2,
+  "bugs_applied": 2,
+  "injection_log": [
+    {
+      "bug": 0,
+      "file": "more_itertools/recipes.py",
+      "applied": true
+    },
+    {
+      "bug": 1,
+      "file": "more_itertools/more.py",
+      "applied": true
+    }
+  ],
+  "n_actions": 32,
+  "agent_stopped_itself": true,
+  "final_tests_green": true,
+  "final_pytest_tail": "................................................................................ [ 68%]\n.............................................................. [ 77%]\n................................................................... [ 86%]\n............................................................ [ 94%]\n......................................          [100%]\n725 passed, 19930 subtests passed in 13.32s\n"
+}
