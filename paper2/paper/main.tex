@@ -18,6 +18,18 @@
 \usepackage{xcolor}
 \usepackage{natbib}
 \graphicspath{{figures/}}
+\usepackage{newunicodechar}
+% v2: the erratum quotes canonical text verbatim, Unicode included.
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{Δ}{\ensuremath{\Delta}}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{—}{\textemdash}
+\newunicodechar{–}{\textendash}
+% v2: footnote on each passage that reports the cross-instrument correlation.
+\newcommand{\rhonote}{Corrected in version~2: this correlation carries no
+information beyond the two instruments' shared dependence on error rate. See
+the erratum in Section~\ref{sec:audit}.}
 
 \hypersetup{colorlinks=true, linkcolor=blue!50!black,
             citecolor=blue!50!black, urlcolor=blue!50!black}
@@ -55,9 +67,10 @@ wall-clock-calibrated level trigger has exactly two regimes: at
 $\Delta t \le 1$\,s it is a constant alarm (trap holds 20/20; median 18 firings
 per run); at $\Delta t \ge 60$\,s it is silent (the state never reaches
 threshold). Every trajectory's critical $\Delta t$ lies in $(1, 30]$\,s.
-Hook-instrumented real agent runs measure inter-action latency at median
-1.53\,s (p90 2.33\,s)---real autonomous coding cadence sits firmly inside the
-trap regime, vindicating \cite{P1}'s empirical finding under a corrected
+Instrumented runs of a scriptable single-tool-call agent loop (gpt-5.4-mini)
+measure inter-action latency at median 1.53\,s (p90 2.33\,s)---the measured
+cadence sits firmly inside the trap regime, vindicating \cite{P1}'s empirical
+finding under a corrected
 mechanism---and replaying real ordered latency sequences shows the regimes are
 stable within a run (19/20 clean single-crossing accumulators; bounded flicker
 only when bursts are scaled into the critical band, exploratory). The regime is
@@ -66,7 +79,7 @@ noise. The structure is a property of the calibration class, not the engine: a
 minimal wall-clock leaky accumulator over the raw per-action error stream
 reproduces the same cliff (20/20 trap at $\Delta t = 0$; 0/20 crossings at
 $\Delta t \ge 60$; critical band of the same order of magnitude, Spearman
-$\rho = 0.530$ with the engine's), while a sample-time CUSUM over the identical
+$\rho = 0.530$ with the engine's)\footnote{\rhonote}, while a sample-time CUSUM over the identical
 stream is exactly invariant across the entire $\Delta t$ grid (20/20 identical
 fire patterns). A rising-edge trigger with hysteresis at the identical
 threshold fires 0--3 times per trajectory in every condition tested, including

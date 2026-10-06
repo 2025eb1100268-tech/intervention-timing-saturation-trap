@@ -48,9 +48,23 @@ Code-path trace with line references and the erratum text in
 \texttt{DT\_AUDIT.md}.
 
 \subsection{Instrumentation}
-Hook design, tool-name mapping table, and converter limitations (empty
-thoughts; A9 reasoning-feature triggers inapplicable to hook traces); timing
-distributions per run and per tool type in \texttt{data/live\_runs/}.
+The five timing runs were logged natively by the scriptable loop
+(\texttt{heart\_instrument/agent\_runner.py}, gpt-5.4-mini, one tool call per
+turn), which records the model's text with each action. The released Claude Code
+\texttt{PostToolUse} hook writes the same record format for readers' own
+sessions; its design, the tool-name mapping table, and its converter
+limitations (empty thoughts, because hooks do not expose reasoning text; A9
+reasoning-feature triggers therefore inapplicable to hook traces) apply to hook
+traces, not to the five timing runs. Timing distributions per run and per tool
+type in \texttt{data/live\_runs/}.
+
+The loop writes a record after every tool observation whether or not the call
+failed, so the five timing runs are complete. The released hook, as first
+distributed, was not: Claude Code fires \texttt{PostToolUse} only after a tool
+call succeeds and \texttt{PostToolUseFailure} after one fails, so a logger
+registered for \texttt{PostToolUse} alone never records a failed command.
+Readers instrumenting their own sessions should register it for both events;
+the repository now does so. No number in this paper is affected.
 
 \subsection{Non-uniform replay}
 Condition construction, seeds, per-condition tables, and the boundary case in

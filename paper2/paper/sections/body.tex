@@ -33,7 +33,7 @@ found the engine's decay term never operated in our replays
 counterfactual sweep over inter-action time, revealing the level trigger is
 bistable---constant alarm or dead, transition within one order of magnitude of
 $\Delta t$ (Section~\ref{sec:sweep}). (3) It measures where real agents sit, via
-a hook-instrumented agent loop, and replays real ordered latency sequences to
+an instrumented agent loop, and replays real ordered latency sequences to
 show the regimes are stable within a run
 (Sections~\ref{sec:cadence}--\ref{sec:burst}). (4) It demonstrates the
 structure is a property of the calibration class, not the engine: a minimal
@@ -111,6 +111,38 @@ A decay-vs-event decomposition over the persisted state streams attributes
 as a model property---and shows the engine is not a pass-through of rule outputs
 (mean $|\text{raw} - \text{realized}|$ delta of 0.044--0.093 per event-bearing
 action from momentum, conflict rebalancing, and normalization).
+
+\paragraph{Erratum to this paper (v2).} Version~1 of this paper contains three
+errors, corrected in this version. Each correction is quoted below from the
+errata record of~\cite{P3}, which refers to this paper as Paper~2.
+
+\emph{(1) How the cadence was measured.} Version~1 described the timing runs of
+Section~\ref{sec:cadence} as hook-instrumented (abstract;
+Sections~\ref{sec:intro} and~\ref{sec:cadence}).
+\begin{quote}
+The five runs were not logged by the Claude Code hook. They were driven by a scriptable loop issuing one tool call per turn to gpt-5.4-mini, which wrote the same PostToolUse-schema record natively after each observation. The hook, which produces the identical format, was installed but was not the source of these timestamps. Paper 2 does not name the model. No number changes: the timestamp is taken at the same point in each cycle, after the tool's observation.
+\end{quote}
+This version names the model. The correction bears only on how far the
+measured cadence generalises, which Section~\ref{sec:limitations} already
+bounded (``a lower bound for frontier loops---the deployments most likely to
+enter the transition band are exactly the ones not measured''). The abstract,
+Sections~\ref{sec:intro}, \ref{sec:cadence} and~\ref{sec:limitations}, and the
+Instrumentation appendix are corrected in this version.
+
+\emph{(2) The cross-instrument correlation.} Version~1 reports that
+per-trajectory critical intervals correlate between the two instruments at
+Spearman $\rho = 0.530$ (abstract; Section~\ref{sec:class}).
+\begin{quote}
+This correlation carries no information beyond the two instruments' shared dependence on error rate. It equals the product of each instrument's correlation with error rate to three decimals (0.899 × 0.593 = 0.533), and the partial correlation controlling for error rate is −0.007 (permutation p = 0.97). Paper 2's class-level conclusion is unaffected: it rests on both instruments showing the same two regimes on identical streams (20/20 in the alarm regime at Δt = 0; none crossing threshold at Δt ≥ 150 s), not on this correlation.
+\end{quote}
+Both passages are footnoted in this version.
+
+\emph{(3) The scope of the abstract's cadence claim.} Version~1's abstract said
+that real autonomous coding cadence sits firmly inside the trap regime.
+\begin{quote}
+This holds for the harness, model and session lengths measured, and Paper 2's own limitations section said so: the cadence came from `a small-model loop on small repos (a lower bound for frontier loops—the deployments most likely to enter the transition band are exactly the ones not measured)'. The abstract claimed more than that limitation allowed. A production agent harness driving Claude models (Paper 3, clean protocol) ran at a pooled median of 5.0–5.6 s (5.1–5.6 s as originally reported, before failed tool calls were restored) — a comparison that also changes model vendor and task set — and with its shorter sessions the monitor was starved of evidence rather than trapped: no session reached the clamp. Whether the trap closes depends on cadence and session length; it is not a general property of autonomous coding.
+\end{quote}
+This version's abstract narrows the claim to the measured cadence.
 
 \section{The Uniform-Cadence Sweep}
 \label{sec:sweep}
@@ -207,9 +239,13 @@ constant-alarm regime.}
 
 The sweep's $\Delta t$ is synthetic, and the SWE-bench traces record no
 wall-clock times (we verified the submission's public artifacts carry none). We
-therefore instrumented a real agent loop directly: a tool-call hook logs an ISO
-wall-clock timestamp, tool name, and result status for every action, with zero
-interference with the session. Five real debugging runs on cloned open-source
+therefore instrumented an agent loop directly: a scriptable loop issues one tool
+call per turn to gpt-5.4-mini and, after each tool's observation is returned,
+appends an ISO wall-clock timestamp, tool name, and result status to a local
+log. The record uses the same schema, taken at the same point in the cycle, as a
+Claude Code \texttt{PostToolUse} hook released alongside it; the hook was not
+the source of these timestamps (version~1 said otherwise; see the erratum in
+Section~\ref{sec:audit}). Five real debugging runs on cloned open-source
 Python repositories (verified bug injection, real test suites; 7--32 actions per
 run) yield a pooled $n = 65$ inter-action sample: \textbf{median 1.53\,s, p90
 2.33\,s, max 15.87\,s} (the maximum is a full slow test-suite step; test
@@ -236,7 +272,7 @@ loop and silent in a human-gated loop. A monitor designer who does not log
 inter-action latency cannot know which monitor they have deployed.
 
 \textbf{Measurement limitation, stated plainly:} the instrumented loop used a
-small, fast model on small repositories; frontier-model loops with heavy prefill
+small, fast model (gpt-5.4-mini) on small repositories; frontier-model loops with heavy prefill
 and long reasoning are slower, so our median is a lower bound for the
 deployments of greatest interest---which strengthens the deployment-profile
 concern rather than weakening it.
@@ -328,7 +364,7 @@ pre-registered conjunct failed and is reported as such: we predicted I1's
 critical intervals would fall in the same $(1, 30]$ band as HEART's; 16/20 do,
 while 4 land in adjacent bins ($(30, 60]$ for three high-error-rate
 trajectories, $(0, 1]$ for the sparsest). Per-trajectory critical $\Delta t$s
-correlate between instruments at Spearman $\rho = 0.530$. The honest statement:
+correlate between instruments at Spearman $\rho = 0.530$.\footnote{\rhonote} The honest statement:
 \textbf{cadence bistability is a property of wall-clock-calibrated leaky
 integrators sampled at agent cadence}---the band's exact placement depends on
 input stream and step size, within the same order of magnitude. The
@@ -431,7 +467,7 @@ different problems, and only the first is solved here.
 Synthetic uniform $\Delta t$ in Section~\ref{sec:sweep} (bounded by
 Sections~\ref{sec:cadence}--\ref{sec:burst}'s measured and replayed real timing,
 but the SWE-bench traces' own timing remains unrecoverable); measured cadence
-from a small-model loop on small repos (a lower bound for frontier loops---the
+from a small-model loop (gpt-5.4-mini) on small repos (a lower bound for frontier loops---the
 deployments most likely to enter the transition band are exactly the ones not
 measured); the dead-regime claim for slow deployments is an extrapolation from
 the sweep, not a measurement; one harness format and one model family's traces;
