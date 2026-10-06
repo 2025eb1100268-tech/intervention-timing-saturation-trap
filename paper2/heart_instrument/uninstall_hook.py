@@ -1,5 +1,6 @@
-"""Remove the heart_instrument PostToolUse logger hook from
-~/.claude/settings.json. Backs up before writing. Idempotent.
+"""Remove the heart_instrument logger hook from ~/.claude/settings.json, from
+both tool-call events (PostToolUse and PostToolUseFailure). Backs up before
+writing. Idempotent.
 
 Usage:
     python heart_instrument/uninstall_hook.py
@@ -12,6 +13,7 @@ from pathlib import Path
 
 SETTINGS = Path(os.path.expanduser("~")) / ".claude" / "settings.json"
 HOOK_TAG = "heart_instrument/hook_logger.py"
+EVENTS = ("PostToolUse", "PostToolUseFailure")
 
 
 def _is_ours(h: dict) -> bool:
@@ -19,14 +21,36 @@ def _is_ours(h: dict) -> bool:
     return HOOK_TAG in cmd
 
 
+def uninstall(settings: dict) -> int:
+    """Strip the logger from every event it is registered for. Returns the
+    number of hook entries removed."""
+    hooks = settings.get("hooks", {})
+    removed = 0
+    for event in EVENTS:
+        entries = hooks.get(event, [])
+        new_entries = []
+        for entry in entries:
+            kept = [h for h in entry.get("hooks", []) if not _is_ours(h)]
+            removed += len(entry.get("hooks", [])) - len(kept)
+            if kept:
+                entry["hooks"] = kept
+                new_entries.append(entry)
+        if new_entries:
+            hooks[event] = new_entries
+        else:
+            hooks.pop(event, None)
+    if "hooks" in settings and not settings["hooks"]:
+        settings.pop("hooks")
+    return removed
+
+
 def main():
     if not SETTINGS.exists():
         print("no settings.json; nothing to do")
         return
     settings = json.loads(SETTINGS.read_text(encoding="utf-8-sig") or "{}")
-    ptu = settings.get("hooks", {}).get("PostToolUse", [])
-    if not ptu:
-        print("no PostToolUse hooks configured; nothing to do")
+    if not any(settings.get("hooks", {}).get(e) for e in EVENTS):
+        print("no PostToolUse or PostToolUseFailure hooks configured; nothing to do")
         return
 
     n = 1
@@ -35,21 +59,7 @@ def main():
     bak.write_text(json.dumps(settings, indent=2), encoding="utf-8")
     print(f"backup: {bak}")
 
-    removed = 0
-    new_ptu = []
-    for entry in ptu:
-        kept = [h for h in entry.get("hooks", []) if not _is_ours(h)]
-        removed += len(entry.get("hooks", [])) - len(kept)
-        if kept:
-            entry["hooks"] = kept
-            new_ptu.append(entry)
-    if new_ptu:
-        settings["hooks"]["PostToolUse"] = new_ptu
-    else:
-        settings.get("hooks", {}).pop("PostToolUse", None)
-        if not settings.get("hooks"):
-            settings.pop("hooks", None)
-
+    removed = uninstall(settings)
     SETTINGS.write_text(json.dumps(settings, indent=2), encoding="utf-8")
     print(f"removed {removed} heart_instrument hook entr{'y' if removed==1 else 'ies'} from {SETTINGS}")
 

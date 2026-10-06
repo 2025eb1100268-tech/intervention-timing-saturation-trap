@@ -32,6 +32,13 @@ design and maps the family of monitors indexed by inter-action time. See
 - **`paper2/fig_data/`** — the CSVs behind every figure.
 - **`paper2/heart_instrument/`** — the Claude Code hook logger, JSONL→trajectory
   converter, instrumented agent runner, and live HEART monitor.
+  **Correction (October 2026):** Claude Code fires `PostToolUse` only after a tool
+  call succeeds and `PostToolUseFailure` after one fails. The installer as first
+  released registered `PostToolUse` alone, so the logger never recorded a failed
+  call. `install_hook.py` now registers both events; if you installed the earlier
+  version, run it again. Paper 2's own timing runs were logged by the agent runner,
+  which records every call, so no number in the paper is affected (arXiv v2,
+  Instrumentation appendix). Tests: `python -m pytest paper2/tests/test_hook_logger.py -q`.
 - **`paper2/scripts/`** — the analysis scripts (transparency; engine not shipped).
 - **`paper2/tests/`** — self-contained unit tests (`test_generality.py`,
   `test_transition_triggers.py`, `test_cooldown.py`). The generality tests run with
