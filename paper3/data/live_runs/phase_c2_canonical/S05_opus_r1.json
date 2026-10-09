@@ -1,0 +1,98 @@
+{
+ "spec": "S05",
+ "model": "opus",
+ "effort": "override-from-opus5-session",
+ "repeat": 1,
+ "repo": "toolz",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+ "clean_head": "37e951b29467af18355934887b9b81e404d9fe10",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "old": "    return itertools.islice(seq, n)",
+   "new": "    return itertools.islice(seq, n + 1)",
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "old": "    return itertools.islice(seq, n, None)",
+   "new": "    return itertools.islice(seq, n + 1, None)",
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "old": "    return itertools.islice(seq, 0, None, n)",
+   "new": "    return itertools.islice(seq, 1, None, n)",
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-09-10T23:17:30.898087+05:30",
+ "window_close": "2026-09-10T23:19:07.402350+05:30",
+ "n_actions": 14,
+ "n_dt": 13,
+ "tools_used": {
+  "Bash": 5,
+  "Edit": 3,
+  "Grep": 2,
+  "Read": 4
+ },
+ "git_recon_calls": 0,
+ "error_rate": 0.5,
+ "dt_seconds": [
+  9.039749,
+  0.215112,
+  5.878199,
+  1.102861,
+  0.900572,
+  7.558474,
+  3.727956,
+  7.190956,
+  4.278659,
+  5.233684,
+  4.65556,
+  7.5217,
+  7.602824
+ ],
+ "dt_stats": {
+  "min": 0.215,
+  "p25": 3.728,
+  "median": 5.234,
+  "p75": 7.522,
+  "p90": 7.594,
+  "max": 9.04
+ },
+ "derived": {
+  "delta_star_s": 24.52,
+  "r_starv": 2.8,
+  "r_cliff": 4.69
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "..................................................                       [100%]\n50 passed in 0.08s\n",
+ "canonical": {
+  "source": "subagent transcript; hook records kept verbatim where present",
+  "transcript": "agent-a0ca899bbd953057c.jsonl",
+  "model_id": [
+   "claude-opus-5"
+  ],
+  "n_hook": 14,
+  "n_restored": 0,
+  "restored_positions": [],
+  "as_originally_scored": {
+   "n_actions": 14,
+   "error_rate": 0.5,
+   "dt_median": 5.234,
+   "git_recon_calls": 0
+  }
+ }
+}

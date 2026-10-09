@@ -1,0 +1,115 @@
+{
+ "run_id": "runC",
+ "model": "fable",
+ "repo": "toolz",
+ "harness": "claude-code-subagent",
+ "window_open": "2026-09-10T22:06:21.815980+05:30",
+ "window_close": "2026-09-10T22:09:10.819199+05:30",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "bug": 0,
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "bug": 1,
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "bug": 2,
+   "file": "toolz/dicttoolz.py",
+   "applied": true
+  }
+ ],
+ "n_actions": 16,
+ "n_dt": 15,
+ "agent_tool_records_in_window": 1,
+ "tools_used": {
+  "Bash": 8,
+  "Edit": 3,
+  "Grep": 3,
+  "Read": 2
+ },
+ "error_rate": 0.5625,
+ "dt_seconds": [
+  7.336062,
+  0.155814,
+  7.376223,
+  0.931541,
+  4.765805,
+  1.028643,
+  5.913128,
+  8.765816,
+  36.114854,
+  0.320998,
+  1.0681,
+  14.551803,
+  20.643456,
+  1.34129,
+  2.181409
+ ],
+ "dt_stats": {
+  "min": 0.156,
+  "p25": 1.048,
+  "median": 4.766,
+  "p75": 8.071,
+  "p90": 18.207,
+  "max": 36.115
+ },
+ "derived": {
+  "delta_star_s": 27.8,
+  "r_starv": 3.2,
+  "r_cliff": 5.83,
+  "binding": "starvation"
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "........................................................................ [ 74%]\n.........................                                                [100%]\n97 passed in 0.12s\n",
+ "suspect": false,
+ "harvest_uncorrected": {
+  "n_actions": 17,
+  "n_dt": 16,
+  "dt_seconds": [
+   34.306437,
+   7.336062,
+   0.155814,
+   7.376223,
+   0.931541,
+   4.765805,
+   1.028643,
+   5.913128,
+   8.765816,
+   36.114854,
+   0.320998,
+   1.0681,
+   14.551803,
+   20.643456,
+   1.34129,
+   2.181409
+  ],
+  "dt_stats": {
+   "min": 0.156,
+   "p25": 1.058,
+   "median": 5.339,
+   "p75": 10.212,
+   "p90": 27.475,
+   "max": 36.115
+  },
+  "error_rate": 0.5294,
+  "derived": {
+   "delta_star_s": 26.06,
+   "r_starv": 3.4,
+   "r_cliff": 4.88,
+   "binding": "starvation"
+  },
+  "tools_used": {
+   "Bash": 9,
+   "Edit": 3,
+   "Grep": 3,
+   "Read": 2
+  }
+ },
+ "corrected_from_cleaned_window": true
+}

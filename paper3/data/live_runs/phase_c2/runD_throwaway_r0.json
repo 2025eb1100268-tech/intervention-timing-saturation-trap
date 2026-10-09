@@ -1,0 +1,79 @@
+{
+ "spec": "runD",
+ "model": "throwaway",
+ "effort": "test",
+ "repeat": 0,
+ "repo": "toolz",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+ "clean_head": "95fbef1ea526da3332cdb410485487a49ee6541e",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "bug": 0,
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "bug": 1,
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "bug": 2,
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-09-10T22:53:09.934561+05:30",
+ "window_close": "2026-09-10T22:55:27.387530+05:30",
+ "n_actions": 15,
+ "n_dt": 14,
+ "tools_used": {
+  "Bash": 10,
+  "Edit": 2,
+  "Read": 3
+ },
+ "git_recon_calls": 1,
+ "error_rate": 0.3333,
+ "dt_seconds": [
+  4.49608,
+  3.132992,
+  5.473061,
+  3.156424,
+  3.350279,
+  14.089444,
+  10.496754,
+  6.196725,
+  9.161275,
+  12.56437,
+  4.496624,
+  7.898113,
+  9.277462,
+  6.789433
+ ],
+ "dt_stats": {
+  "min": 3.133,
+  "p25": 4.496,
+  "median": 6.493,
+  "p75": 9.248,
+  "p90": 11.944,
+  "max": 14.089
+ },
+ "derived": {
+  "delta_star_s": 16.04,
+  "r_starv": 3.0,
+  "r_cliff": 2.47
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "..................................................                       [100%]\n50 passed in 0.07s\n"
+}

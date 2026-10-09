@@ -1,0 +1,109 @@
+{
+ "run_id": "runD",
+ "model": "opus",
+ "repo": "toolz",
+ "harness": "claude-code-subagent",
+ "window_open": "2026-09-09T16:08:25.747992+05:30",
+ "window_close": "2026-09-09T16:10:17.861958+05:30",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "bug": 0,
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "bug": 1,
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "bug": 2,
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  }
+ ],
+ "n_actions": 14,
+ "n_dt": 13,
+ "agent_tool_records_in_window": 1,
+ "tools_used": {
+  "Bash": 10,
+  "Edit": 3,
+  "Read": 1
+ },
+ "error_rate": 0.5,
+ "dt_seconds": [
+  4.119784,
+  11.036267,
+  3.729145,
+  4.650124,
+  3.798822,
+  1.031955,
+  7.035309,
+  11.933278,
+  8.952263,
+  7.977677,
+  10.644271,
+  3.332175,
+  9.035755
+ ],
+ "dt_stats": {
+  "min": 1.032,
+  "p25": 3.799,
+  "median": 7.035,
+  "p75": 9.036,
+  "p90": 10.958,
+  "max": 11.933
+ },
+ "derived": {
+  "delta_star_s": 24.52,
+  "r_starv": 2.8,
+  "r_cliff": 3.49,
+  "binding": "starvation"
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "..................................................                       [100%]\n50 passed in 0.08s\n",
+ "suspect": false,
+ "harvest_uncorrected": {
+  "n_actions": 15,
+  "n_dt": 14,
+  "dt_seconds": [
+   10.63672,
+   4.119784,
+   11.036267,
+   3.729145,
+   4.650124,
+   3.798822,
+   1.031955,
+   7.035309,
+   11.933278,
+   8.952263,
+   7.977677,
+   10.644271,
+   3.332175,
+   9.035755
+  ],
+  "dt_stats": {
+   "min": 1.032,
+   "p25": 3.879,
+   "median": 7.506,
+   "p75": 10.236,
+   "p90": 10.919,
+   "max": 11.933
+  },
+  "error_rate": 0.4667,
+  "derived": {
+   "delta_star_s": 22.8,
+   "r_starv": 3.0,
+   "r_cliff": 3.04,
+   "binding": "starvation"
+  },
+  "tools_used": {
+   "Bash": 11,
+   "Edit": 3,
+   "Read": 1
+  }
+ },
+ "corrected_from_cleaned_window": true
+}

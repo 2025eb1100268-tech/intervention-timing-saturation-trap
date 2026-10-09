@@ -1,0 +1,62 @@
+{
+ "spec": "S10",
+ "model": "opus55",
+ "effort": "override-from-opus55-session",
+ "repeat": 1,
+ "repo": "more-itertools",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "5692cd838d2b0b55ff46c5f9934b79a0b069027e",
+ "clean_head": "96c9d515a79b4509b9ba0f08af37c1716e6d5679",
+ "bugs_specified": 1,
+ "bugs_applied": 1,
+ "injection_log": [
+  {
+   "old": "        if len(chunk) != n:",
+   "new": "        if len(chunk) > n:",
+   "file": "more_itertools/more.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-10-05T02:22:16.227430+05:30",
+ "window_close": "2026-10-05T02:23:39.920614+05:30",
+ "n_actions": 6,
+ "n_dt": 5,
+ "tools_used": {
+  "Edit": 1,
+  "Grep": 2,
+  "PowerShell": 2,
+  "Read": 1
+ },
+ "git_recon_calls": 1,
+ "error_rate": 0.6667,
+ "dt_seconds": [
+  0.782295,
+  11.348179,
+  2.070929,
+  18.949483,
+  15.657599
+ ],
+ "dt_stats": {
+  "min": 0.782,
+  "p25": 2.071,
+  "median": 11.348,
+  "p75": 15.658,
+  "p90": 17.633,
+  "max": 18.949
+ },
+ "derived": {
+  "delta_star_s": 33.36,
+  "r_starv": 1.2,
+  "r_cliff": 2.94
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": ".................................................................................................... [ 62%]\n.................................... [ 69%]\n.............................................................................................. [ 85%]\n.............................................................. [ 95%]\n......................... [100%]\n585 passed, 10080 subtests passed in 4.94s\n"
+}

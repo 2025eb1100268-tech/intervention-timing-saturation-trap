@@ -1,0 +1,178 @@
+{
+ "runs": [
+  {
+   "spec": "S02",
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "n_hook": 9,
+   "n_true": 10,
+   "E_hook": 0,
+   "E_true": 1,
+   "median_dt": 2.984,
+   "tools": {
+    "Edit": 3,
+    "Grep": 2,
+    "PowerShell": 2,
+    "Read": 2
+   },
+   "git_recon": 1,
+   "green": true
+  },
+  {
+   "spec": "S03",
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "n_hook": 7,
+   "n_true": 8,
+   "E_hook": 0,
+   "E_true": 1,
+   "median_dt": 1.888,
+   "tools": {
+    "Edit": 3,
+    "PowerShell": 2,
+    "Read": 2
+   },
+   "git_recon": 1,
+   "green": true
+  },
+  {
+   "spec": "S05",
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "n_hook": 9,
+   "n_true": 9,
+   "E_hook": 2,
+   "E_true": 2,
+   "median_dt": 3.677,
+   "tools": {
+    "Bash": 4,
+    "Edit": 3,
+    "Grep": 1,
+    "Read": 1
+   },
+   "git_recon": 1,
+   "green": true
+  },
+  {
+   "spec": "S06",
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "n_hook": 3,
+   "n_true": 4,
+   "E_hook": 0,
+   "E_true": 1,
+   "median_dt": 4.214,
+   "tools": {
+    "Edit": 1,
+    "PowerShell": 1,
+    "Read": 1
+   },
+   "git_recon": 0,
+   "green": true
+  },
+  {
+   "spec": "S07",
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "n_hook": 7,
+   "n_true": 8,
+   "E_hook": 0,
+   "E_true": 1,
+   "median_dt": 2.754,
+   "tools": {
+    "Edit": 2,
+    "Grep": 2,
+    "PowerShell": 2,
+    "Read": 1
+   },
+   "git_recon": 0,
+   "green": true
+  },
+  {
+   "spec": "S08",
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "n_hook": 8,
+   "n_true": 8,
+   "E_hook": 1,
+   "E_true": 1,
+   "median_dt": 3.191,
+   "tools": {
+    "Bash": 3,
+    "Edit": 2,
+    "Grep": 1,
+    "Read": 2
+   },
+   "git_recon": 2,
+   "green": true
+  },
+  {
+   "spec": "S09",
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "n_hook": 12,
+   "n_true": 12,
+   "E_hook": 0,
+   "E_true": 0,
+   "median_dt": 4.795,
+   "tools": {
+    "Edit": 2,
+    "Grep": 1,
+    "PowerShell": 4,
+    "Read": 3,
+    "TaskStop": 1,
+    "ToolSearch": 1
+   },
+   "git_recon": 2,
+   "green": true
+  },
+  {
+   "spec": "S10",
+   "models": [
+    "claude-opus-5-5"
+   ],
+   "n_hook": 6,
+   "n_true": 7,
+   "E_hook": 0,
+   "E_true": 1,
+   "median_dt": 6.907,
+   "tools": {
+    "Edit": 1,
+    "Grep": 2,
+    "PowerShell": 2,
+    "Read": 1
+   },
+   "git_recon": 1,
+   "green": true
+  }
+ ],
+ "H19": {
+  "hook": [
+   0,
+   "SUPPORTED"
+  ],
+  "transcript": [
+   0,
+   "SUPPORTED"
+  ]
+ },
+ "H20": {
+  "hook": [
+   1,
+   0,
+   "SUPPORTED"
+  ],
+  "transcript": [
+   1,
+   0,
+   "SUPPORTED"
+  ]
+ }
+}

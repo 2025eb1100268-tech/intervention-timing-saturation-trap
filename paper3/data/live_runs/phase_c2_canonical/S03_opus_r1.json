@@ -1,0 +1,94 @@
+{
+ "spec": "S03",
+ "model": "opus",
+ "effort": "override-from-opus5-session",
+ "repeat": 1,
+ "repo": "sortedcontainers",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "3ac358631f58c1347f1d6d2d92784117db0f38ed",
+ "clean_head": "9389b64c32c89f5a8cc9476d0c98c41da075d8f5",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "old": "        return value in self._set",
+   "new": "        return value not in self._set",
+   "file": "src/sortedcontainers/sortedset.py",
+   "applied": true
+  },
+  {
+   "old": "            _set.add(value)\n            self._list.add(value)",
+   "new": "            _set.add(value)",
+   "file": "src/sortedcontainers/sortedset.py",
+   "applied": true
+  },
+  {
+   "old": "            _set.remove(value)\n            self._list.remove(value)",
+   "new": "            _set.remove(value)",
+   "file": "src/sortedcontainers/sortedset.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-09-10T23:14:37.313027+05:30",
+ "window_close": "2026-09-10T23:16:10.118282+05:30",
+ "n_actions": 10,
+ "n_dt": 9,
+ "tools_used": {
+  "Bash": 5,
+  "Edit": 3,
+  "Grep": 1,
+  "Read": 1
+ },
+ "git_recon_calls": 0,
+ "error_rate": 0.5,
+ "dt_seconds": [
+  6.449457,
+  2.834561,
+  7.132638,
+  6.360207,
+  5.712512,
+  4.926969,
+  5.061474,
+  7.68473,
+  14.125506
+ ],
+ "dt_stats": {
+  "min": 2.835,
+  "p25": 5.061,
+  "median": 6.36,
+  "p75": 7.133,
+  "p90": 8.973,
+  "max": 14.126
+ },
+ "derived": {
+  "delta_star_s": 24.52,
+  "r_starv": 2.0,
+  "r_cliff": 3.86
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "..................................................                       [100%]\n50 passed in 0.11s\n",
+ "canonical": {
+  "source": "subagent transcript; hook records kept verbatim where present",
+  "transcript": "agent-a92685a3bad034f4e.jsonl",
+  "model_id": [
+   "claude-opus-5"
+  ],
+  "n_hook": 10,
+  "n_restored": 0,
+  "restored_positions": [],
+  "as_originally_scored": {
+   "n_actions": 10,
+   "error_rate": 0.5,
+   "dt_median": 6.36,
+   "git_recon_calls": 0
+  }
+ }
+}

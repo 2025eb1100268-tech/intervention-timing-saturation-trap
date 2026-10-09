@@ -1,0 +1,96 @@
+{
+ "spec": "S02",
+ "model": "opus55",
+ "effort": "override-from-opus55-session",
+ "repeat": 1,
+ "repo": "sortedcontainers",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "3ac358631f58c1347f1d6d2d92784117db0f38ed",
+ "clean_head": "c036c3490268973eb4d7157c14c08a92d6e80d74",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "old": "        dict.__delitem__(self, key)\n        self._list_remove(key)",
+   "new": "        dict.__delitem__(self, key)",
+   "file": "src/sortedcontainers/sorteddict.py",
+   "applied": true
+  },
+  {
+   "old": "        if key not in self:\n            self._list_add(key)",
+   "new": "        if key in self:\n            self._list_add(key)",
+   "file": "src/sortedcontainers/sorteddict.py",
+   "applied": true
+  },
+  {
+   "old": "        return key, self[key]",
+   "new": "        return self[key], key",
+   "file": "src/sortedcontainers/sorteddict.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-10-05T02:04:44.430266+05:30",
+ "window_close": "2026-10-05T02:06:20.436118+05:30",
+ "n_actions": 10,
+ "n_dt": 9,
+ "tools_used": {
+  "Edit": 3,
+  "Grep": 2,
+  "PowerShell": 3,
+  "Read": 2
+ },
+ "git_recon_calls": 1,
+ "error_rate": 0.6,
+ "dt_seconds": [
+  2.141023,
+  40.324898,
+  0.995084,
+  2.984084,
+  8.610355,
+  1.202078,
+  1.0242,
+  6.075715,
+  11.164498
+ ],
+ "dt_stats": {
+  "min": 0.995,
+  "p25": 1.202,
+  "median": 2.984,
+  "p75": 8.61,
+  "p90": 16.997,
+  "max": 40.325
+ },
+ "derived": {
+  "delta_star_s": 29.78,
+  "r_starv": 2.0,
+  "r_cliff": 9.98
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "..........................................................               [100%]\n58 passed in 0.09s\n",
+ "canonical": {
+  "source": "subagent transcript; hook records kept verbatim where present",
+  "transcript": "agent-a39f18a22ba30ea20.jsonl",
+  "model_id": [
+   "claude-opus-5-5"
+  ],
+  "n_hook": 9,
+  "n_restored": 1,
+  "restored_positions": [
+   1
+  ],
+  "as_originally_scored": {
+   "n_actions": 9,
+   "error_rate": 0.5556,
+   "dt_median": 4.53,
+   "git_recon_calls": 1
+  }
+ }
+}

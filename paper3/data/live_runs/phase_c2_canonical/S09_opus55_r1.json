@@ -1,0 +1,92 @@
+{
+ "spec": "S09",
+ "model": "opus55",
+ "effort": "override-from-opus55-session",
+ "repeat": 1,
+ "repo": "more-itertools",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "5692cd838d2b0b55ff46c5f9934b79a0b069027e",
+ "clean_head": "0a74bd8065b955567b83129bdfdbed814d618fa9",
+ "bugs_specified": 2,
+ "bugs_applied": 2,
+ "injection_log": [
+  {
+   "old": "    return next(islice(iterable, n, None), default)",
+   "new": "    return next(islice(iterable, n + 1, None), default)",
+   "file": "more_itertools/recipes.py",
+   "applied": true
+  },
+  {
+   "old": "    return list(islice(iterable, n))",
+   "new": "    return list(islice(iterable, max(0, n - 1)))",
+   "file": "more_itertools/recipes.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-10-05T02:15:12.393747+05:30",
+ "window_close": "2026-10-05T02:21:54.560782+05:30",
+ "n_actions": 12,
+ "n_dt": 11,
+ "tools_used": {
+  "Edit": 2,
+  "Grep": 1,
+  "PowerShell": 4,
+  "Read": 3,
+  "TaskStop": 1,
+  "ToolSearch": 1
+ },
+ "git_recon_calls": 2,
+ "error_rate": 0.3333,
+ "dt_seconds": [
+  2.404265,
+  1.979953,
+  1.418228,
+  0.581173,
+  81.462033,
+  58.68078,
+  61.914286,
+  4.794613,
+  1.039426,
+  18.719842,
+  16.241467
+ ],
+ "dt_stats": {
+  "min": 0.581,
+  "p25": 1.699,
+  "median": 4.795,
+  "p75": 38.7,
+  "p90": 61.914,
+  "max": 81.462
+ },
+ "derived": {
+  "delta_star_s": 16.04,
+  "r_starv": 2.4,
+  "r_cliff": 3.34
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "....................................................................................................... [ 73%]\n...................... [ 89%]\n...............                   [100%]\n140 passed, 9850 subtests passed in 9.65s\n",
+ "canonical": {
+  "source": "subagent transcript; hook records kept verbatim where present",
+  "transcript": "agent-a4d334ef2c176e926.jsonl",
+  "model_id": [
+   "claude-opus-5-5"
+  ],
+  "n_hook": 12,
+  "n_restored": 0,
+  "restored_positions": [],
+  "as_originally_scored": {
+   "n_actions": 12,
+   "error_rate": 0.3333,
+   "dt_median": 4.795,
+   "git_recon_calls": 2
+  }
+ }
+}

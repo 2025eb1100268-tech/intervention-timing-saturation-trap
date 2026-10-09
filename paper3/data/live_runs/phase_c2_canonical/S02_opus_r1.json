@@ -1,0 +1,90 @@
+{
+ "spec": "S02",
+ "model": "opus",
+ "effort": "override-from-opus5-session",
+ "repeat": 1,
+ "repo": "sortedcontainers",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "3ac358631f58c1347f1d6d2d92784117db0f38ed",
+ "clean_head": "0739402173b4e2d321999621ceedb432dcf3a580",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "old": "        dict.__delitem__(self, key)\n        self._list_remove(key)",
+   "new": "        dict.__delitem__(self, key)",
+   "file": "src/sortedcontainers/sorteddict.py",
+   "applied": true
+  },
+  {
+   "old": "        if key not in self:\n            self._list_add(key)",
+   "new": "        if key in self:\n            self._list_add(key)",
+   "file": "src/sortedcontainers/sorteddict.py",
+   "applied": true
+  },
+  {
+   "old": "        return key, self[key]",
+   "new": "        return self[key], key",
+   "file": "src/sortedcontainers/sorteddict.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-09-10T23:12:03.898283+05:30",
+ "window_close": "2026-09-10T23:13:13.538585+05:30",
+ "n_actions": 7,
+ "n_dt": 6,
+ "tools_used": {
+  "Bash": 3,
+  "Edit": 3,
+  "Read": 1
+ },
+ "git_recon_calls": 0,
+ "error_rate": 0.7143,
+ "dt_seconds": [
+  2.908364,
+  16.712808,
+  4.707,
+  4.644721,
+  6.214087,
+  10.017628
+ ],
+ "dt_stats": {
+  "min": 2.908,
+  "p25": 4.66,
+  "median": 5.461,
+  "p75": 9.067,
+  "p90": 13.365,
+  "max": 16.713
+ },
+ "derived": {
+  "delta_star_s": 35.95,
+  "r_starv": 1.4,
+  "r_cliff": 6.58
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "..........................................................               [100%]\n58 passed in 0.08s\n",
+ "canonical": {
+  "source": "subagent transcript; hook records kept verbatim where present",
+  "transcript": "agent-af16735049a2feb44.jsonl",
+  "model_id": [
+   "claude-opus-5"
+  ],
+  "n_hook": 7,
+  "n_restored": 0,
+  "restored_positions": [],
+  "as_originally_scored": {
+   "n_actions": 7,
+   "error_rate": 0.7143,
+   "dt_median": 5.461,
+   "git_recon_calls": 0
+  }
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "spec": "S10",
+ "model": "fable",
+ "effort": "override-from-opus5-session",
+ "repeat": 1,
+ "repo": "more-itertools",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "5692cd838d2b0b55ff46c5f9934b79a0b069027e",
+ "clean_head": "d0c3a09e88a49e9531ff8be3d59ba219d1c1938d",
+ "bugs_specified": 1,
+ "bugs_applied": 1,
+ "injection_log": [
+  {
+   "old": "        if len(chunk) != n:",
+   "new": "        if len(chunk) > n:",
+   "file": "more_itertools/more.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-09-10T23:42:09.151962+05:30",
+ "window_close": "2026-09-10T23:43:05.641267+05:30",
+ "n_actions": 4,
+ "n_dt": 3,
+ "tools_used": {
+  "Bash": 2,
+  "Edit": 1,
+  "Grep": 1
+ },
+ "git_recon_calls": 0,
+ "error_rate": 0.75,
+ "dt_seconds": [
+  4.175013,
+  5.22369,
+  12.539475
+ ],
+ "dt_stats": {
+  "min": 4.175,
+  "p25": 4.699,
+  "median": 5.224,
+  "p75": 8.882,
+  "p90": 11.076,
+  "max": 12.539
+ },
+ "derived": {
+  "delta_star_s": 37.91,
+  "r_starv": 0.8,
+  "r_cliff": 7.26
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": ".................................................................................................... [ 62%]\n.................................... [ 69%]\n.............................................................................................. [ 85%]\n.............................................................. [ 95%]\n......................... [100%]\n585 passed, 10080 subtests passed in 4.58s\n",
+ "canonical": {
+  "source": "subagent transcript; hook records kept verbatim where present",
+  "transcript": "agent-a595bb8d467974be9.jsonl",
+  "model_id": [
+   "claude-fable-5-1"
+  ],
+  "n_hook": 4,
+  "n_restored": 0,
+  "restored_positions": [],
+  "as_originally_scored": {
+   "n_actions": 4,
+   "error_rate": 0.75,
+   "dt_median": 5.224,
+   "git_recon_calls": 0
+  }
+ }
+}

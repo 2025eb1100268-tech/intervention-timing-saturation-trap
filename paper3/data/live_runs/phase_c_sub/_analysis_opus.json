@@ -1,0 +1,681 @@
+{
+ "pooled": {
+  "n": 60,
+  "min": 0.434857,
+  "p25": 3.3521535,
+  "median": 5.1127635,
+  "p75": 10.44323425,
+  "p90": 17.655959700000007,
+  "max": 126.16263
+ },
+ "runs": [
+  {
+   "run_id": "runA",
+   "model": "opus",
+   "repo": "sortedcontainers",
+   "harness": "claude-code-subagent",
+   "window_open": "2026-09-09T15:59:46.908972+05:30",
+   "window_close": "2026-09-09T16:00:57.591775+05:30",
+   "bugs_specified": 3,
+   "bugs_applied": 2,
+   "injection_log": [
+    {
+     "bug": 0,
+     "file": "src/sortedcontainers/sortedlist.py",
+     "applied": false,
+     "reason": "old text occurs 2 times (need exactly 1)"
+    },
+    {
+     "bug": 1,
+     "file": "src/sortedcontainers/sortedlist.py",
+     "applied": true
+    },
+    {
+     "bug": 2,
+     "file": "src/sortedcontainers/sortedlist.py",
+     "applied": true
+    }
+   ],
+   "n_actions": 8,
+   "n_dt": 7,
+   "agent_tool_records_in_window": 1,
+   "tools_used": {
+    "Edit": 2,
+    "Grep": 1,
+    "PowerShell": 4,
+    "Read": 1
+   },
+   "error_rate": 0.375,
+   "dt_seconds": [
+    3.147543,
+    9.999054,
+    2.653349,
+    8.124817,
+    5.676144,
+    7.122901,
+    11.435208
+   ],
+   "dt_stats": {
+    "min": 2.653,
+    "p25": 4.412,
+    "median": 7.123,
+    "p75": 9.062,
+    "p90": 10.574,
+    "max": 11.435
+   },
+   "derived": {
+    "delta_star_s": 18.13,
+    "r_starv": 1.6,
+    "r_cliff": 2.55,
+    "binding": "starvation"
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "..........................................................               [100%]\n58 passed in 0.22s\n",
+   "suspect": false,
+   "harvest_uncorrected": {
+    "n_actions": 9,
+    "n_dt": 8,
+    "dt_seconds": [
+     11.202881,
+     3.147543,
+     9.999054,
+     2.653349,
+     8.124817,
+     5.676144,
+     7.122901,
+     11.435208
+    ],
+    "dt_stats": {
+     "min": 2.653,
+     "p25": 5.044,
+     "median": 7.624,
+     "p75": 10.3,
+     "p90": 11.273,
+     "max": 11.435
+    },
+    "error_rate": 0.3333,
+    "derived": {
+     "delta_star_s": 16.04,
+     "r_starv": 1.8,
+     "r_cliff": 2.1,
+     "binding": "starvation"
+    },
+    "tools_used": {
+     "Bash": 1,
+     "Edit": 2,
+     "Grep": 1,
+     "PowerShell": 4,
+     "Read": 1
+    }
+   },
+   "corrected_from_cleaned_window": true,
+   "_replay": {
+    "real": {
+     "n": 8,
+     "crossings": 0,
+     "flicker": 0,
+     "a6": 0,
+     "t3": 0,
+     "reached": false,
+     "clamped": false,
+     "drained": false,
+     "drain_gap": null,
+     "max_frust": 0.29870558234342803
+    },
+    "const": {
+     "n": 8,
+     "crossings": 0,
+     "flicker": 0,
+     "a6": 0,
+     "t3": 0,
+     "reached": false,
+     "clamped": false,
+     "drained": false,
+     "drain_gap": null,
+     "max_frust": 0.29838102814069434
+    }
+   }
+  },
+  {
+   "run_id": "runB",
+   "model": "opus",
+   "repo": "sortedcontainers",
+   "harness": "claude-code-subagent",
+   "window_open": "2026-09-09T16:01:13.947058+05:30",
+   "window_close": "2026-09-09T16:02:45.889633+05:30",
+   "bugs_specified": 3,
+   "bugs_applied": 3,
+   "injection_log": [
+    {
+     "bug": 0,
+     "file": "src/sortedcontainers/sortedlist.py",
+     "applied": true
+    },
+    {
+     "bug": 1,
+     "file": "src/sortedcontainers/sortedlist.py",
+     "applied": true
+    },
+    {
+     "bug": 2,
+     "file": "src/sortedcontainers/sortedlist.py",
+     "applied": true
+    }
+   ],
+   "n_actions": 13,
+   "n_dt": 12,
+   "agent_tool_records_in_window": 1,
+   "tools_used": {
+    "Bash": 7,
+    "Edit": 3,
+    "Read": 3
+   },
+   "error_rate": 0.3077,
+   "dt_seconds": [
+    5.226805,
+    4.909672,
+    3.358813,
+    4.935268,
+    3.416802,
+    3.330189,
+    3.324055,
+    6.484287,
+    3.28893,
+    3.30854,
+    6.447962,
+    11.89511
+   ],
+   "dt_stats": {
+    "min": 3.289,
+    "p25": 3.329,
+    "median": 4.163,
+    "p75": 5.532,
+    "p90": 6.481,
+    "max": 11.895
+   },
+   "derived": {
+    "delta_star_s": 14.76,
+    "r_starv": 2.6,
+    "r_cliff": 3.55,
+    "binding": "starvation"
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "..........................................................               [100%]\n58 passed in 0.20s\n",
+   "suspect": false,
+   "harvest_uncorrected": {
+    "n_actions": 14,
+    "n_dt": 13,
+    "dt_seconds": [
+     8.239051,
+     5.226805,
+     4.909672,
+     3.358813,
+     4.935268,
+     3.416802,
+     3.330189,
+     3.324055,
+     6.484287,
+     3.28893,
+     3.30854,
+     6.447962,
+     11.89511
+    ],
+    "dt_stats": {
+     "min": 3.289,
+     "p25": 3.33,
+     "median": 4.91,
+     "p75": 6.448,
+     "p90": 7.888,
+     "max": 11.895
+    },
+    "error_rate": 0.2857,
+    "derived": {
+     "delta_star_s": 13.67,
+     "r_starv": 2.8,
+     "r_cliff": 2.78,
+     "binding": "cliff"
+    },
+    "tools_used": {
+     "Bash": 8,
+     "Edit": 3,
+     "Read": 3
+    }
+   },
+   "corrected_from_cleaned_window": true,
+   "_replay": {
+    "real": {
+     "n": 13,
+     "crossings": 1,
+     "flicker": 1,
+     "a6": 3,
+     "t3": 1,
+     "reached": true,
+     "clamped": false,
+     "drained": false,
+     "drain_gap": null,
+     "max_frust": 0.8065047145863644
+    },
+    "const": {
+     "n": 13,
+     "crossings": 1,
+     "flicker": 1,
+     "a6": 3,
+     "t3": 1,
+     "reached": true,
+     "clamped": false,
+     "drained": false,
+     "drain_gap": null,
+     "max_frust": 0.8048903960352707
+    }
+   }
+  },
+  {
+   "run_id": "runC",
+   "model": "opus",
+   "repo": "toolz",
+   "harness": "claude-code-subagent",
+   "window_open": "2026-09-09T16:02:59.218316+05:30",
+   "window_close": "2026-09-09T16:08:07.928059+05:30",
+   "bugs_specified": 3,
+   "bugs_applied": 3,
+   "injection_log": [
+    {
+     "bug": 0,
+     "file": "toolz/itertoolz.py",
+     "applied": true
+    },
+    {
+     "bug": 1,
+     "file": "toolz/itertoolz.py",
+     "applied": true
+    },
+    {
+     "bug": 2,
+     "file": "toolz/dicttoolz.py",
+     "applied": true
+    }
+   ],
+   "n_actions": 15,
+   "n_dt": 14,
+   "agent_tool_records_in_window": 1,
+   "tools_used": {
+    "Bash": 7,
+    "Edit": 3,
+    "Grep": 1,
+    "Read": 4
+   },
+   "error_rate": 0.5333,
+   "dt_seconds": [
+    10.376222,
+    5.022497,
+    3.274121,
+    0.434857,
+    4.223817,
+    5.20303,
+    1.031281,
+    27.002599,
+    14.452766,
+    42.39082,
+    17.119397,
+    11.549095,
+    4.507601,
+    126.16263
+   ],
+   "dt_stats": {
+    "min": 0.435,
+    "p25": 4.295,
+    "median": 7.79,
+    "p75": 16.453,
+    "p90": 37.774,
+    "max": 126.163
+   },
+   "derived": {
+    "delta_star_s": 26.26,
+    "r_starv": 3.0,
+    "r_cliff": 3.37,
+    "binding": "starvation"
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "........................................................................ [ 74%]\n.........................                                                [100%]\n97 passed in 0.13s\n",
+   "suspect": false,
+   "harvest_uncorrected": {
+    "n_actions": 16,
+    "n_dt": 15,
+    "dt_seconds": [
+     16.099107,
+     10.376222,
+     5.022497,
+     3.274121,
+     0.434857,
+     4.223817,
+     5.20303,
+     1.031281,
+     27.002599,
+     14.452766,
+     42.39082,
+     17.119397,
+     11.549095,
+     4.507601,
+     126.16263
+    ],
+    "dt_stats": {
+     "min": 0.435,
+     "p25": 4.366,
+     "median": 10.376,
+     "p75": 16.609,
+     "p90": 36.236,
+     "max": 126.163
+    },
+    "error_rate": 0.5,
+    "derived": {
+     "delta_star_s": 24.52,
+     "r_starv": 3.2,
+     "r_cliff": 2.36,
+     "binding": "cliff"
+    },
+    "tools_used": {
+     "Bash": 8,
+     "Edit": 3,
+     "Grep": 1,
+     "Read": 4
+    }
+   },
+   "corrected_from_cleaned_window": true,
+   "_replay": {
+    "real": {
+     "n": 15,
+     "crossings": 1,
+     "flicker": 1,
+     "a6": 1,
+     "t3": 1,
+     "reached": true,
+     "clamped": false,
+     "drained": true,
+     "drain_gap": 42.39082,
+     "max_frust": 0.735640401667353
+    },
+    "const": {
+     "n": 15,
+     "crossings": 1,
+     "flicker": 0,
+     "a6": 6,
+     "t3": 1,
+     "reached": true,
+     "clamped": false,
+     "drained": false,
+     "drain_gap": null,
+     "max_frust": 0.8179231484099362
+    }
+   }
+  },
+  {
+   "run_id": "runD",
+   "model": "opus",
+   "repo": "toolz",
+   "harness": "claude-code-subagent",
+   "window_open": "2026-09-09T16:08:25.747992+05:30",
+   "window_close": "2026-09-09T16:10:17.861958+05:30",
+   "bugs_specified": 3,
+   "bugs_applied": 3,
+   "injection_log": [
+    {
+     "bug": 0,
+     "file": "toolz/itertoolz.py",
+     "applied": true
+    },
+    {
+     "bug": 1,
+     "file": "toolz/itertoolz.py",
+     "applied": true
+    },
+    {
+     "bug": 2,
+     "file": "toolz/itertoolz.py",
+     "applied": true
+    }
+   ],
+   "n_actions": 14,
+   "n_dt": 13,
+   "agent_tool_records_in_window": 1,
+   "tools_used": {
+    "Bash": 10,
+    "Edit": 3,
+    "Read": 1
+   },
+   "error_rate": 0.5,
+   "dt_seconds": [
+    4.119784,
+    11.036267,
+    3.729145,
+    4.650124,
+    3.798822,
+    1.031955,
+    7.035309,
+    11.933278,
+    8.952263,
+    7.977677,
+    10.644271,
+    3.332175,
+    9.035755
+   ],
+   "dt_stats": {
+    "min": 1.032,
+    "p25": 3.799,
+    "median": 7.035,
+    "p75": 9.036,
+    "p90": 10.958,
+    "max": 11.933
+   },
+   "derived": {
+    "delta_star_s": 24.52,
+    "r_starv": 2.8,
+    "r_cliff": 3.49,
+    "binding": "starvation"
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "..................................................                       [100%]\n50 passed in 0.08s\n",
+   "suspect": false,
+   "harvest_uncorrected": {
+    "n_actions": 15,
+    "n_dt": 14,
+    "dt_seconds": [
+     10.63672,
+     4.119784,
+     11.036267,
+     3.729145,
+     4.650124,
+     3.798822,
+     1.031955,
+     7.035309,
+     11.933278,
+     8.952263,
+     7.977677,
+     10.644271,
+     3.332175,
+     9.035755
+    ],
+    "dt_stats": {
+     "min": 1.032,
+     "p25": 3.879,
+     "median": 7.506,
+     "p75": 10.236,
+     "p90": 10.919,
+     "max": 11.933
+    },
+    "error_rate": 0.4667,
+    "derived": {
+     "delta_star_s": 22.8,
+     "r_starv": 3.0,
+     "r_cliff": 3.04,
+     "binding": "starvation"
+    },
+    "tools_used": {
+     "Bash": 11,
+     "Edit": 3,
+     "Read": 1
+    }
+   },
+   "corrected_from_cleaned_window": true,
+   "_replay": {
+    "real": {
+     "n": 14,
+     "crossings": 0,
+     "flicker": 0,
+     "a6": 0,
+     "t3": 0,
+     "reached": false,
+     "clamped": false,
+     "drained": false,
+     "drain_gap": null,
+     "max_frust": 0.3351941713454872
+    },
+    "const": {
+     "n": 14,
+     "crossings": 0,
+     "flicker": 0,
+     "a6": 0,
+     "t3": 0,
+     "reached": false,
+     "clamped": false,
+     "drained": false,
+     "drain_gap": null,
+     "max_frust": 0.3387624193016739
+    }
+   }
+  },
+  {
+   "run_id": "runE",
+   "model": "opus",
+   "repo": "more-itertools",
+   "harness": "claude-code-subagent",
+   "window_open": "2026-09-09T16:10:24.100080+05:30",
+   "window_close": "2026-09-09T16:13:02.968218+05:30",
+   "bugs_specified": 2,
+   "bugs_applied": 2,
+   "injection_log": [
+    {
+     "bug": 0,
+     "file": "more_itertools/recipes.py",
+     "applied": true
+    },
+    {
+     "bug": 1,
+     "file": "more_itertools/more.py",
+     "applied": true
+    }
+   ],
+   "n_actions": 15,
+   "n_dt": 14,
+   "agent_tool_records_in_window": 1,
+   "tools_used": {
+    "Bash": 7,
+    "Edit": 2,
+    "Grep": 2,
+    "Read": 4
+   },
+   "error_rate": 0.4,
+   "dt_seconds": [
+    27.740628,
+    13.723997,
+    3.587941,
+    2.545392,
+    4.310418,
+    3.039358,
+    3.475586,
+    3.004168,
+    29.07784,
+    3.440613,
+    2.734407,
+    5.59603,
+    22.485024,
+    7.102858
+   ],
+   "dt_stats": {
+    "min": 2.545,
+    "p25": 3.14,
+    "median": 3.949,
+    "p75": 12.069,
+    "p90": 26.164,
+    "max": 29.078
+   },
+   "derived": {
+    "delta_star_s": 19.39,
+    "r_starv": 3.0,
+    "r_cliff": 4.91,
+    "binding": "starvation"
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "................................................................................ [ 68%]\n.............................................................. [ 77%]\n................................................................... [ 86%]\n............................................................ [ 94%]\n......................................          [100%]\n725 passed, 19930 subtests passed in 15.03s\n",
+   "suspect": false,
+   "harvest_uncorrected": {
+    "n_actions": 16,
+    "n_dt": 15,
+    "dt_seconds": [
+     11.464284,
+     27.740628,
+     13.723997,
+     3.587941,
+     2.545392,
+     4.310418,
+     3.039358,
+     3.475586,
+     3.004168,
+     29.07784,
+     3.440613,
+     2.734407,
+     5.59603,
+     22.485024,
+     7.102858
+    ],
+    "dt_stats": {
+     "min": 2.545,
+     "p25": 3.24,
+     "median": 4.31,
+     "p75": 12.594,
+     "p90": 25.638,
+     "max": 29.078
+    },
+    "error_rate": 0.375,
+    "derived": {
+     "delta_star_s": 18.13,
+     "r_starv": 3.2,
+     "r_cliff": 4.21,
+     "binding": "starvation"
+    },
+    "tools_used": {
+     "Bash": 8,
+     "Edit": 2,
+     "Grep": 2,
+     "Read": 4
+    }
+   },
+   "corrected_from_cleaned_window": true,
+   "_replay": {
+    "real": {
+     "n": 15,
+     "crossings": 0,
+     "flicker": 0,
+     "a6": 0,
+     "t3": 0,
+     "reached": false,
+     "clamped": false,
+     "drained": false,
+     "drain_gap": null,
+     "max_frust": 0.6399424053314151
+    },
+    "const": {
+     "n": 15,
+     "crossings": 0,
+     "flicker": 0,
+     "a6": 0,
+     "t3": 0,
+     "reached": false,
+     "clamped": false,
+     "drained": false,
+     "drain_gap": null,
+     "max_frust": 0.6512618287427565
+    }
+   }
+  }
+ ]
+}

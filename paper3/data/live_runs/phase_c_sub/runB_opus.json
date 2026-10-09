@@ -1,0 +1,107 @@
+{
+ "run_id": "runB",
+ "model": "opus",
+ "repo": "sortedcontainers",
+ "harness": "claude-code-subagent",
+ "window_open": "2026-09-09T16:01:13.947058+05:30",
+ "window_close": "2026-09-09T16:02:45.889633+05:30",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "bug": 0,
+   "file": "src/sortedcontainers/sortedlist.py",
+   "applied": true
+  },
+  {
+   "bug": 1,
+   "file": "src/sortedcontainers/sortedlist.py",
+   "applied": true
+  },
+  {
+   "bug": 2,
+   "file": "src/sortedcontainers/sortedlist.py",
+   "applied": true
+  }
+ ],
+ "n_actions": 13,
+ "n_dt": 12,
+ "agent_tool_records_in_window": 1,
+ "tools_used": {
+  "Bash": 7,
+  "Edit": 3,
+  "Read": 3
+ },
+ "error_rate": 0.3077,
+ "dt_seconds": [
+  5.226805,
+  4.909672,
+  3.358813,
+  4.935268,
+  3.416802,
+  3.330189,
+  3.324055,
+  6.484287,
+  3.28893,
+  3.30854,
+  6.447962,
+  11.89511
+ ],
+ "dt_stats": {
+  "min": 3.289,
+  "p25": 3.329,
+  "median": 4.163,
+  "p75": 5.532,
+  "p90": 6.481,
+  "max": 11.895
+ },
+ "derived": {
+  "delta_star_s": 14.76,
+  "r_starv": 2.6,
+  "r_cliff": 3.55,
+  "binding": "starvation"
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "..........................................................               [100%]\n58 passed in 0.20s\n",
+ "suspect": false,
+ "harvest_uncorrected": {
+  "n_actions": 14,
+  "n_dt": 13,
+  "dt_seconds": [
+   8.239051,
+   5.226805,
+   4.909672,
+   3.358813,
+   4.935268,
+   3.416802,
+   3.330189,
+   3.324055,
+   6.484287,
+   3.28893,
+   3.30854,
+   6.447962,
+   11.89511
+  ],
+  "dt_stats": {
+   "min": 3.289,
+   "p25": 3.33,
+   "median": 4.91,
+   "p75": 6.448,
+   "p90": 7.888,
+   "max": 11.895
+  },
+  "error_rate": 0.2857,
+  "derived": {
+   "delta_star_s": 13.67,
+   "r_starv": 2.8,
+   "r_cliff": 2.78,
+   "binding": "cliff"
+  },
+  "tools_used": {
+   "Bash": 8,
+   "Edit": 3,
+   "Read": 3
+  }
+ },
+ "corrected_from_cleaned_window": true
+}

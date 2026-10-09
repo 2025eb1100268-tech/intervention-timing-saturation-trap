@@ -1,0 +1,42 @@
+{
+ "S02": {
+  "description": "S02 sorteddict debug",
+  "subagent_type": "general-purpose",
+  "prompt": "Work in the repository at <repo>\\data\\live_runs\\repos\\sortedcontainers\n\nSet PYTHONPATH=src when running tests. Run pytest as:\n  python -m pytest tests/test_coverage_sorteddict.py -q -p no:cacheprovider --override-ini addopts=\n\nYour task:\nSeveral tests in tests/test_coverage_sorteddict.py fail because of bugs in src/sortedcontainers/sorteddict.py. Find and fix every bug until that test file passes completely. Never edit test files.\n\nWork step by step: run the tests to see failures, locate the buggy source, fix with exact edits, and re-run tests. Stop when the target tests pass."
+ },
+ "S03": {
+  "description": "S03 sortedset debug",
+  "subagent_type": "general-purpose",
+  "prompt": "Work in the repository at <repo>\\data\\live_runs\\repos\\sortedcontainers\n\nSet PYTHONPATH=src when running tests. Run pytest as:\n  python -m pytest tests/test_coverage_sortedset.py -q -p no:cacheprovider --override-ini addopts=\n\nYour task:\nSeveral tests in tests/test_coverage_sortedset.py fail because of bugs in src/sortedcontainers/sortedset.py. Find and fix every bug until that test file passes completely. Never edit test files.\n\nWork step by step: run the tests to see failures, locate the buggy source, fix with exact edits, and re-run tests. Stop when the target tests pass."
+ },
+ "S05": {
+  "description": "S05 itertoolz debug",
+  "subagent_type": "general-purpose",
+  "prompt": "Work in the repository at <repo>\\data\\live_runs\\repos\\toolz\n\nRun pytest as:\n  python -m pytest toolz/tests/test_itertoolz.py -q -p no:cacheprovider --override-ini addopts=\n\nYour task:\nSeveral tests in toolz/tests/test_itertoolz.py fail because of bugs in toolz/itertoolz.py. Find and fix every bug until that test file passes completely. Never edit test files.\n\nWork step by step: run the tests to see failures, locate the buggy source, fix with exact edits, and re-run tests. Stop when the target tests pass."
+ },
+ "S06": {
+  "description": "S06 dicttoolz debug",
+  "subagent_type": "general-purpose",
+  "prompt": "Work in the repository at <repo>\\data\\live_runs\\repos\\toolz\n\nRun pytest as:\n  python -m pytest toolz/tests/test_dicttoolz.py -q -p no:cacheprovider --override-ini addopts=\n\nYour task:\nSeveral tests in toolz/tests/test_dicttoolz.py fail because of bugs in toolz/dicttoolz.py. Find and fix every bug until that test file passes completely. Never edit test files.\n\nWork step by step: run the tests to see failures, locate the buggy source, fix with exact edits, and re-run tests. Stop when the target tests pass."
+ },
+ "S07": {
+  "description": "S07 functoolz debug",
+  "subagent_type": "general-purpose",
+  "prompt": "Work in the repository at <repo>\\data\\live_runs\\repos\\toolz\n\nRun pytest as:\n  python -m pytest toolz/tests/test_functoolz.py -q -p no:cacheprovider --override-ini addopts=\n\nYour task:\nSeveral tests in toolz/tests/test_functoolz.py fail because of bugs in toolz/functoolz.py. Find and fix every bug until that test file passes completely. Never edit test files.\n\nWork step by step: run the tests to see failures, locate the buggy source, fix with exact edits, and re-run tests. Stop when the target tests pass."
+ },
+ "S08": {
+  "description": "S08 toolz recipes debug",
+  "subagent_type": "general-purpose",
+  "prompt": "Work in the repository at <repo>\\data\\live_runs\\repos\\toolz\n\nRun pytest as:\n  python -m pytest toolz/tests/test_recipes.py -q -p no:cacheprovider --override-ini addopts=\n\nYour task:\nSeveral tests in toolz/tests/test_recipes.py fail because of bugs in toolz/recipes.py. Find and fix every bug until that test file passes completely. Never edit test files.\n\nWork step by step: run the tests to see failures, locate the buggy source, fix with exact edits, and re-run tests. Stop when the target tests pass."
+ },
+ "S09": {
+  "description": "S09 mi recipes debug",
+  "subagent_type": "general-purpose",
+  "prompt": "Work in the repository at <repo>\\data\\live_runs\\repos\\more-itertools\n\nRun pytest as:\n  python -m pytest tests/test_recipes.py -q -p no:cacheprovider --override-ini addopts=\n\nYour task:\nSeveral tests in tests/test_recipes.py fail because of bugs in more_itertools/recipes.py. Find and fix every bug until that test file passes completely. Never edit test files.\n\nWork step by step: run the tests to see failures, locate the buggy source, fix with exact edits, and re-run tests. Stop when the target tests pass."
+ },
+ "S10": {
+  "description": "S10 mi more debug",
+  "subagent_type": "general-purpose",
+  "prompt": "Work in the repository at <repo>\\data\\live_runs\\repos\\more-itertools\n\nRun pytest as:\n  python -m pytest tests/test_more.py -q -p no:cacheprovider --override-ini addopts=\n\nYour task:\nSeveral tests in tests/test_more.py fail because of bugs in more_itertools/more.py. Find and fix every bug until that test file passes completely. Never edit test files.\n\nWork step by step: run the tests to see failures, locate the buggy source, fix with exact edits, and re-run tests. Stop when the target tests pass."
+ }
+}

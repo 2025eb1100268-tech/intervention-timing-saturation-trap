@@ -1,0 +1,81 @@
+{
+ "spec": "S09",
+ "model": "fable",
+ "effort": "override-from-opus5-session",
+ "repeat": 1,
+ "repo": "more-itertools",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "5692cd838d2b0b55ff46c5f9934b79a0b069027e",
+ "clean_head": "574aea033626f8b7b8ca14895710ee9d14bfb9ad",
+ "bugs_specified": 2,
+ "bugs_applied": 2,
+ "injection_log": [
+  {
+   "old": "    return next(islice(iterable, n, None), default)",
+   "new": "    return next(islice(iterable, n + 1, None), default)",
+   "file": "more_itertools/recipes.py",
+   "applied": true
+  },
+  {
+   "old": "    return list(islice(iterable, n))",
+   "new": "    return list(islice(iterable, max(0, n - 1)))",
+   "file": "more_itertools/recipes.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-09-10T23:35:12.294934+05:30",
+ "window_close": "2026-09-10T23:40:41.107472+05:30",
+ "n_actions": 17,
+ "n_dt": 16,
+ "tools_used": {
+  "Bash": 7,
+  "Edit": 2,
+  "Grep": 2,
+  "Read": 3,
+  "TaskStop": 2,
+  "ToolSearch": 1
+ },
+ "git_recon_calls": 2,
+ "error_rate": 0.2941,
+ "dt_seconds": [
+  3.934235,
+  0.883917,
+  49.927286,
+  8.516482,
+  6.982194,
+  9.529657,
+  0.207019,
+  5.002065,
+  21.330827,
+  22.200128,
+  1.365852,
+  0.339046,
+  13.567512,
+  1.22712,
+  23.614228,
+  7.662131
+ ],
+ "dt_stats": {
+  "min": 0.207,
+  "p25": 1.331,
+  "median": 7.322,
+  "p75": 15.508,
+  "p90": 22.907,
+  "max": 49.927
+ },
+ "derived": {
+  "delta_star_s": 14.09,
+  "r_starv": 3.4,
+  "r_cliff": 1.92
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "....................................................................................................... [ 73%]\n...................... [ 89%]\n...............                   [100%]\n140 passed, 9850 subtests passed in 8.98s\n"
+}

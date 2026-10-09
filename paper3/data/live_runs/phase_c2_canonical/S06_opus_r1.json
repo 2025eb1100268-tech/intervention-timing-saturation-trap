@@ -1,0 +1,76 @@
+{
+ "spec": "S06",
+ "model": "opus",
+ "effort": "override-from-opus5-session",
+ "repeat": 1,
+ "repo": "toolz",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+ "clean_head": "f0bfe2c0d86dc531c1b97826028f5c28e628b0ae",
+ "bugs_specified": 1,
+ "bugs_applied": 1,
+ "injection_log": [
+  {
+   "old": "    rv = factory()\n    rv.update(zip(d.keys(), map(func, d.values())))",
+   "new": "    rv = factory()\n    rv.update(zip(map(func, d.values()), d.keys()))",
+   "file": "toolz/dicttoolz.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-09-10T23:20:04.533866+05:30",
+ "window_close": "2026-09-10T23:20:55.816732+05:30",
+ "n_actions": 6,
+ "n_dt": 5,
+ "tools_used": {
+  "Bash": 5,
+  "Edit": 1
+ },
+ "git_recon_calls": 0,
+ "error_rate": 0.5,
+ "dt_seconds": [
+  3.78355,
+  4.001873,
+  3.494357,
+  7.432923,
+  7.404952
+ ],
+ "dt_stats": {
+  "min": 3.494,
+  "p25": 3.784,
+  "median": 4.002,
+  "p75": 7.405,
+  "p90": 7.422,
+  "max": 7.433
+ },
+ "derived": {
+  "delta_star_s": 24.52,
+  "r_starv": 1.2,
+  "r_cliff": 6.13
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "...............................................                          [100%]\n47 passed in 0.07s\n",
+ "canonical": {
+  "source": "subagent transcript; hook records kept verbatim where present",
+  "transcript": "agent-a135111a5ff3b4a1a.jsonl",
+  "model_id": [
+   "claude-opus-5"
+  ],
+  "n_hook": 6,
+  "n_restored": 0,
+  "restored_positions": [],
+  "as_originally_scored": {
+   "n_actions": 6,
+   "error_rate": 0.5,
+   "dt_median": 4.002,
+   "git_recon_calls": 0
+  }
+ }
+}

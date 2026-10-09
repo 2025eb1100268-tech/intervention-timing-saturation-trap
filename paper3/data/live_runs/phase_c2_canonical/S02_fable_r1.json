@@ -1,0 +1,93 @@
+{
+ "spec": "S02",
+ "model": "fable",
+ "effort": "override-from-opus5-session",
+ "repeat": 1,
+ "repo": "sortedcontainers",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "3ac358631f58c1347f1d6d2d92784117db0f38ed",
+ "clean_head": "f251a43c4a825ae2211ed6ede6087cf9ccb5d7de",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "old": "        dict.__delitem__(self, key)\n        self._list_remove(key)",
+   "new": "        dict.__delitem__(self, key)",
+   "file": "src/sortedcontainers/sorteddict.py",
+   "applied": true
+  },
+  {
+   "old": "        if key not in self:\n            self._list_add(key)",
+   "new": "        if key in self:\n            self._list_add(key)",
+   "file": "src/sortedcontainers/sorteddict.py",
+   "applied": true
+  },
+  {
+   "old": "        return key, self[key]",
+   "new": "        return self[key], key",
+   "file": "src/sortedcontainers/sorteddict.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-09-10T23:13:14.668619+05:30",
+ "window_close": "2026-09-10T23:14:36.022710+05:30",
+ "n_actions": 7,
+ "n_dt": 6,
+ "tools_used": {
+  "Edit": 3,
+  "Grep": 1,
+  "PowerShell": 2,
+  "Read": 1
+ },
+ "git_recon_calls": 0,
+ "error_rate": 0.7143,
+ "dt_seconds": [
+  3.302945,
+  17.50779,
+  1.674681,
+  1.439267,
+  1.547263,
+  25.097499
+ ],
+ "dt_stats": {
+  "min": 1.439,
+  "p25": 1.579,
+  "median": 2.489,
+  "p75": 13.957,
+  "p90": 21.303,
+  "max": 25.097
+ },
+ "derived": {
+  "delta_star_s": 35.95,
+  "r_starv": 1.4,
+  "r_cliff": 14.44
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "..........................................................               [100%]\n58 passed in 0.08s\n",
+ "canonical": {
+  "source": "subagent transcript; hook records kept verbatim where present",
+  "transcript": "agent-a29401f8ebcc0341a.jsonl",
+  "model_id": [
+   "claude-fable-5-1"
+  ],
+  "n_hook": 6,
+  "n_restored": 1,
+  "restored_positions": [
+   1
+  ],
+  "as_originally_scored": {
+   "n_actions": 6,
+   "error_rate": 0.6667,
+   "dt_median": 1.675,
+   "git_recon_calls": 0
+  }
+ }
+}

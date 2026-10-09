@@ -1,0 +1,108 @@
+{
+ "run_id": "runE",
+ "model": "opus",
+ "repo": "more-itertools",
+ "harness": "claude-code-subagent",
+ "window_open": "2026-09-09T16:10:24.100080+05:30",
+ "window_close": "2026-09-09T16:13:02.968218+05:30",
+ "bugs_specified": 2,
+ "bugs_applied": 2,
+ "injection_log": [
+  {
+   "bug": 0,
+   "file": "more_itertools/recipes.py",
+   "applied": true
+  },
+  {
+   "bug": 1,
+   "file": "more_itertools/more.py",
+   "applied": true
+  }
+ ],
+ "n_actions": 15,
+ "n_dt": 14,
+ "agent_tool_records_in_window": 1,
+ "tools_used": {
+  "Bash": 7,
+  "Edit": 2,
+  "Grep": 2,
+  "Read": 4
+ },
+ "error_rate": 0.4,
+ "dt_seconds": [
+  27.740628,
+  13.723997,
+  3.587941,
+  2.545392,
+  4.310418,
+  3.039358,
+  3.475586,
+  3.004168,
+  29.07784,
+  3.440613,
+  2.734407,
+  5.59603,
+  22.485024,
+  7.102858
+ ],
+ "dt_stats": {
+  "min": 2.545,
+  "p25": 3.14,
+  "median": 3.949,
+  "p75": 12.069,
+  "p90": 26.164,
+  "max": 29.078
+ },
+ "derived": {
+  "delta_star_s": 19.39,
+  "r_starv": 3.0,
+  "r_cliff": 4.91,
+  "binding": "starvation"
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "................................................................................ [ 68%]\n.............................................................. [ 77%]\n................................................................... [ 86%]\n............................................................ [ 94%]\n......................................          [100%]\n725 passed, 19930 subtests passed in 15.03s\n",
+ "suspect": false,
+ "harvest_uncorrected": {
+  "n_actions": 16,
+  "n_dt": 15,
+  "dt_seconds": [
+   11.464284,
+   27.740628,
+   13.723997,
+   3.587941,
+   2.545392,
+   4.310418,
+   3.039358,
+   3.475586,
+   3.004168,
+   29.07784,
+   3.440613,
+   2.734407,
+   5.59603,
+   22.485024,
+   7.102858
+  ],
+  "dt_stats": {
+   "min": 2.545,
+   "p25": 3.24,
+   "median": 4.31,
+   "p75": 12.594,
+   "p90": 25.638,
+   "max": 29.078
+  },
+  "error_rate": 0.375,
+  "derived": {
+   "delta_star_s": 18.13,
+   "r_starv": 3.2,
+   "r_cliff": 4.21,
+   "binding": "starvation"
+  },
+  "tools_used": {
+   "Bash": 8,
+   "Edit": 2,
+   "Grep": 2,
+   "Read": 4
+  }
+ },
+ "corrected_from_cleaned_window": true
+}

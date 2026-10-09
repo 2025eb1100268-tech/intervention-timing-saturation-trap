@@ -1,0 +1,211 @@
+{
+ "raw_survivor_rows": 26,
+ "systems": [
+  {
+   "system": "AWS CloudWatch metric alarms",
+   "purpose": "ops",
+   "agent_facing": false,
+   "confirmed": true,
+   "configuration": "M-of-N breaching datapoints, Period in seconds",
+   "angles": [
+    "observability-ema"
+   ]
+  },
+  {
+   "system": "Agent Threat Rules ATR-2026-00553",
+   "purpose": "misuse",
+   "agent_facing": true,
+   "confirmed": false,
+   "configuration": "'Runaway tool-call loop within a single session'; actions rate_limit_source, escalate",
+   "angles": [
+    "security-windows"
+   ]
+  },
+  {
+   "system": "Anthropic Claude API rate limits",
+   "purpose": "rate",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "token bucket, 'continuously replenished', RPM/ITPM/OTPM",
+   "angles": [
+    "abuse-and-trust",
+    "security-windows"
+   ]
+  },
+  {
+   "system": "Cloudflare AI Gateway rate limiting",
+   "purpose": "rate",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "rate_limiting_interval / _limit / _technique; fixed vs sliding worked example",
+   "angles": [
+    "abuse-and-trust",
+    "llm-guardrails",
+    "security-windows"
+   ]
+  },
+  {
+   "system": "CrewAI RPMController",
+   "purpose": "rate",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "max_rpm with a hardcoded 60s reset",
+   "angles": [
+    "code-search"
+   ]
+  },
+  {
+   "system": "Datadog Cloud SIEM detection rules",
+   "purpose": "misuse",
+   "agent_facing": false,
+   "confirmed": true,
+   "configuration": "keepAlive enum in seconds; general SIEM, not agent-specific",
+   "angles": [
+    "observability-ema"
+   ]
+  },
+  {
+   "system": "Datadog LLM Observability monitor",
+   "purpose": "ops",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "error spans, last('15m') > 25, evaluation_delay 300s",
+   "angles": [
+    "observability-ema"
+   ]
+  },
+  {
+   "system": "Dynatrace Davis static thresholds",
+   "purpose": "ops",
+   "agent_facing": false,
+   "confirmed": true,
+   "configuration": "3 of 5 minutes sliding violation default",
+   "angles": [
+    "observability-ema"
+   ]
+  },
+  {
+   "system": "Elastic Azure OpenAI DoS rule",
+   "purpose": "misuse",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "'Potential Denial of Azure OpenAI ML Service'; >=10 ChatCompletions in a 60s bucket",
+   "angles": [
+    "observability-ema"
+   ]
+  },
+  {
+   "system": "Elastic Bedrock denied-topic rule",
+   "purpose": "misuse",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "counts guardrail BLOCKED/topic_policy events per user.id; 'attempts to probe the model's denied topics'",
+   "angles": [
+    "observability-ema"
+   ]
+  },
+  {
+   "system": "FastMCP rate limiting middleware",
+   "purpose": "rate",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "token bucket 10.0 req/s, burst 20; also a sliding-window variant",
+   "angles": [
+    "llm-guardrails"
+   ]
+  },
+  {
+   "system": "Fastly Next-Gen WAF attack thresholds",
+   "purpose": "misuse",
+   "agent_facing": false,
+   "confirmed": false,
+   "configuration": "50 signals/1 min, 350/10 min, 1800/1 hr per IP; not agent-specific",
+   "angles": [
+    "abuse-and-trust"
+   ]
+  },
+  {
+   "system": "Helicone rate-limit policy",
+   "purpose": "rate",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "w = time window in seconds, minimum 60; u=cents accrues spend",
+   "angles": [
+    "code-search",
+    "llm-guardrails"
+   ]
+  },
+  {
+   "system": "Kong ai-rate-limiting-advanced",
+   "purpose": "rate",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "window_size 'defined in seconds', sliding by default, over total_tokens",
+   "angles": [
+    "code-search",
+    "security-windows"
+   ]
+  },
+  {
+   "system": "LangChain Core InMemoryRateLimiter",
+   "purpose": "rate",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "state is elapsed * requests_per_second, bucket size 1",
+   "angles": [
+    "code-search"
+   ]
+  },
+  {
+   "system": "LangSmith alerts",
+   "purpose": "ops",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "aggregation window settable only to 5 or 15 minutes",
+   "angles": [
+    "llm-guardrails"
+   ]
+  },
+  {
+   "system": "LiteLLM proxy limits and budgets",
+   "purpose": "rate",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "window_size default 60s; budget_duration erases accumulated spend",
+   "angles": [
+    "abuse-and-trust",
+    "code-search"
+   ]
+  },
+  {
+   "system": "Microsoft AGT AgentRateLimiter (token bucket)",
+   "purpose": "rate",
+   "agent_facing": true,
+   "confirmed": false,
+   "configuration": "refill_rate 5.0 tokens/sec; quote unconfirmed",
+   "angles": [
+    "security-windows"
+   ]
+  },
+  {
+   "system": "Microsoft AGT MCPSlidingRateLimiter",
+   "purpose": "rate",
+   "agent_facing": true,
+   "confirmed": true,
+   "configuration": "prunes tool-call timestamps older than window_size=300.0s, denies above max_calls_per_window=100",
+   "angles": [
+    "llm-guardrails"
+   ]
+  },
+  {
+   "system": "Microsoft Purview IRM cumulative exfiltration",
+   "purpose": "misuse",
+   "agent_facing": true,
+   "confirmed": false,
+   "configuration": "30-day exfiltration accumulation; the agent-policy link was a three-page stitch and is NOT printable",
+   "angles": [
+    "llm-guardrails"
+   ]
+  }
+ ]
+}

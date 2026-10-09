@@ -1,0 +1,74 @@
+{
+ "spec": "S03",
+ "model": "opus55",
+ "effort": "override-from-opus55-session",
+ "repeat": 1,
+ "repo": "sortedcontainers",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "3ac358631f58c1347f1d6d2d92784117db0f38ed",
+ "clean_head": "52697b257897508b50f78c7ea9fdf6f928ca68b6",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "old": "        return value in self._set",
+   "new": "        return value not in self._set",
+   "file": "src/sortedcontainers/sortedset.py",
+   "applied": true
+  },
+  {
+   "old": "            _set.add(value)\n            self._list.add(value)",
+   "new": "            _set.add(value)",
+   "file": "src/sortedcontainers/sortedset.py",
+   "applied": true
+  },
+  {
+   "old": "            _set.remove(value)\n            self._list.remove(value)",
+   "new": "            _set.remove(value)",
+   "file": "src/sortedcontainers/sortedset.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-10-05T02:09:48.518340+05:30",
+ "window_close": "2026-10-05T02:11:13.539995+05:30",
+ "n_actions": 7,
+ "n_dt": 6,
+ "tools_used": {
+  "Edit": 3,
+  "PowerShell": 2,
+  "Read": 2
+ },
+ "git_recon_calls": 1,
+ "error_rate": 0.5714,
+ "dt_seconds": [
+  0.333902,
+  44.414285,
+  1.178818,
+  1.172802,
+  8.643501,
+  5.850607
+ ],
+ "dt_stats": {
+  "min": 0.334,
+  "p25": 1.174,
+  "median": 3.515,
+  "p75": 7.945,
+  "p90": 26.529,
+  "max": 44.414
+ },
+ "derived": {
+  "delta_star_s": 28.27,
+  "r_starv": 1.4,
+  "r_cliff": 8.04
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "..................................................                       [100%]\n50 passed in 0.12s\n"
+}

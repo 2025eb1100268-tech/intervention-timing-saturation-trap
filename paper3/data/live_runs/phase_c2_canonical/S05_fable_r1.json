@@ -1,0 +1,93 @@
+{
+ "spec": "S05",
+ "model": "fable",
+ "effort": "override-from-opus5-session",
+ "repeat": 1,
+ "repo": "toolz",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+ "clean_head": "341853fd4508c193172408be27feababf872c8d6",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "old": "    return itertools.islice(seq, n)",
+   "new": "    return itertools.islice(seq, n + 1)",
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "old": "    return itertools.islice(seq, n, None)",
+   "new": "    return itertools.islice(seq, n + 1, None)",
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "old": "    return itertools.islice(seq, 0, None, n)",
+   "new": "    return itertools.islice(seq, 1, None, n)",
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-09-10T23:19:08.652571+05:30",
+ "window_close": "2026-09-10T23:20:03.084198+05:30",
+ "n_actions": 7,
+ "n_dt": 6,
+ "tools_used": {
+  "Edit": 3,
+  "PowerShell": 3,
+  "Read": 1
+ },
+ "git_recon_calls": 0,
+ "error_rate": 0.8571,
+ "dt_seconds": [
+  7.52,
+  0.518606,
+  8.866519,
+  1.290426,
+  1.155352,
+  8.305535
+ ],
+ "dt_stats": {
+  "min": 0.519,
+  "p25": 1.189,
+  "median": 4.405,
+  "p75": 8.109,
+  "p90": 8.586,
+  "max": 8.867
+ },
+ "derived": {
+  "delta_star_s": 43.92,
+  "r_starv": 1.4,
+  "r_cliff": 9.97
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "..................................................                       [100%]\n50 passed in 0.08s\n",
+ "canonical": {
+  "source": "subagent transcript; hook records kept verbatim where present",
+  "transcript": "agent-a41ce71ffc819a560.jsonl",
+  "model_id": [
+   "claude-fable-5-1"
+  ],
+  "n_hook": 5,
+  "n_restored": 2,
+  "restored_positions": [
+   1,
+   2
+  ],
+  "as_originally_scored": {
+   "n_actions": 5,
+   "error_rate": 0.8,
+   "dt_median": 4.798,
+   "git_recon_calls": 0
+  }
+ }
+}

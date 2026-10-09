@@ -1,0 +1,18 @@
+{
+ "S02_fable": "agent-a29401f8ebcc0341a.jsonl",
+ "S02_opus": "agent-af16735049a2feb44.jsonl",
+ "S03_fable": "agent-ae8fc84a7711489e8.jsonl",
+ "S03_opus": "agent-a92685a3bad034f4e.jsonl",
+ "S05_fable": "agent-a41ce71ffc819a560.jsonl",
+ "S05_opus": "agent-a0ca899bbd953057c.jsonl",
+ "S06_fable": "agent-aabc4267b552ec206.jsonl",
+ "S06_opus": "agent-a135111a5ff3b4a1a.jsonl",
+ "S07_fable": "agent-ae6c45999cf21c916.jsonl",
+ "S07_opus": "agent-ab2859a7878f06303.jsonl",
+ "S08_fable": "agent-a4d9fcbbe67b67421.jsonl",
+ "S08_opus": "agent-a0b8e5d307cfe056b.jsonl",
+ "S09_fable": "agent-a78aedc4b1fa53c91.jsonl",
+ "S09_opus": "agent-add62d3f383b619ea.jsonl",
+ "S10_fable": "agent-a595bb8d467974be9.jsonl",
+ "S10_opus": "agent-ad5ae63d9a28754e7.jsonl"
+}

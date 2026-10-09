@@ -1,0 +1,61 @@
+{
+ "spec": "S06",
+ "model": "fable",
+ "effort": "override-from-opus5-session",
+ "repeat": 1,
+ "repo": "toolz",
+ "protocol": "clean-git-orphan-root-v2",
+ "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+ "clean_head": "6d98b6887dc3482e1c389eef5c6cd4577e31aed2",
+ "bugs_specified": 1,
+ "bugs_applied": 1,
+ "injection_log": [
+  {
+   "old": "    rv = factory()\n    rv.update(zip(d.keys(), map(func, d.values())))",
+   "new": "    rv = factory()\n    rv.update(zip(map(func, d.values()), d.keys()))",
+   "file": "toolz/dicttoolz.py",
+   "applied": true
+  }
+ ],
+ "assertions": {
+  "status_porcelain_empty": true,
+  "diff_head_empty": true,
+  "single_commit": true,
+  "no_other_branch": true,
+  "no_modification_hunk_in_history": true,
+  "injected_bug_present_in_worktree": true
+ },
+ "window_open": "2026-09-10T23:20:56.958346+05:30",
+ "window_close": "2026-09-10T23:21:40.989075+05:30",
+ "n_actions": 5,
+ "n_dt": 4,
+ "tools_used": {
+  "Bash": 2,
+  "Edit": 1,
+  "Grep": 1,
+  "Read": 1
+ },
+ "git_recon_calls": 0,
+ "error_rate": 0.4,
+ "dt_seconds": [
+  3.958654,
+  5.888508,
+  3.200004,
+  6.09997
+ ],
+ "dt_stats": {
+  "min": 3.2,
+  "p25": 3.769,
+  "median": 4.924,
+  "p75": 5.941,
+  "p90": 6.037,
+  "max": 6.1
+ },
+ "derived": {
+  "delta_star_s": 19.39,
+  "r_starv": 1.0,
+  "r_cliff": 3.94
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "...............................................                          [100%]\n47 passed in 0.07s\n"
+}

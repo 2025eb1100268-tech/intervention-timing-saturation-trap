@@ -1,0 +1,113 @@
+{
+ "run_id": "runC",
+ "model": "opus",
+ "repo": "toolz",
+ "harness": "claude-code-subagent",
+ "window_open": "2026-09-09T16:02:59.218316+05:30",
+ "window_close": "2026-09-09T16:08:07.928059+05:30",
+ "bugs_specified": 3,
+ "bugs_applied": 3,
+ "injection_log": [
+  {
+   "bug": 0,
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "bug": 1,
+   "file": "toolz/itertoolz.py",
+   "applied": true
+  },
+  {
+   "bug": 2,
+   "file": "toolz/dicttoolz.py",
+   "applied": true
+  }
+ ],
+ "n_actions": 15,
+ "n_dt": 14,
+ "agent_tool_records_in_window": 1,
+ "tools_used": {
+  "Bash": 7,
+  "Edit": 3,
+  "Grep": 1,
+  "Read": 4
+ },
+ "error_rate": 0.5333,
+ "dt_seconds": [
+  10.376222,
+  5.022497,
+  3.274121,
+  0.434857,
+  4.223817,
+  5.20303,
+  1.031281,
+  27.002599,
+  14.452766,
+  42.39082,
+  17.119397,
+  11.549095,
+  4.507601,
+  126.16263
+ ],
+ "dt_stats": {
+  "min": 0.435,
+  "p25": 4.295,
+  "median": 7.79,
+  "p75": 16.453,
+  "p90": 37.774,
+  "max": 126.163
+ },
+ "derived": {
+  "delta_star_s": 26.26,
+  "r_starv": 3.0,
+  "r_cliff": 3.37,
+  "binding": "starvation"
+ },
+ "final_tests_green": true,
+ "final_pytest_tail": "........................................................................ [ 74%]\n.........................                                                [100%]\n97 passed in 0.13s\n",
+ "suspect": false,
+ "harvest_uncorrected": {
+  "n_actions": 16,
+  "n_dt": 15,
+  "dt_seconds": [
+   16.099107,
+   10.376222,
+   5.022497,
+   3.274121,
+   0.434857,
+   4.223817,
+   5.20303,
+   1.031281,
+   27.002599,
+   14.452766,
+   42.39082,
+   17.119397,
+   11.549095,
+   4.507601,
+   126.16263
+  ],
+  "dt_stats": {
+   "min": 0.435,
+   "p25": 4.366,
+   "median": 10.376,
+   "p75": 16.609,
+   "p90": 36.236,
+   "max": 126.163
+  },
+  "error_rate": 0.5,
+  "derived": {
+   "delta_star_s": 24.52,
+   "r_starv": 3.2,
+   "r_cliff": 2.36,
+   "binding": "cliff"
+  },
+  "tools_used": {
+   "Bash": 8,
+   "Edit": 3,
+   "Grep": 1,
+   "Read": 4
+  }
+ },
+ "corrected_from_cleaned_window": true
+}

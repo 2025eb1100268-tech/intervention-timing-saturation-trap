@@ -1,0 +1,247 @@
+{
+ "preregistrations": {
+  "Phase 9": {
+   "file": "PREREGISTRATION_PHASE9.md",
+   "registered": {
+    "commit": "fc9048a",
+    "date": "2026-09-08",
+    "subject": "PRE-REGISTRATION Phase 9 (Paper 3): H10-H14, Phase A protocol, unrun scaffolding"
+   },
+   "later": []
+  },
+  "Phase 9 addendum C": {
+   "file": "PREREGISTRATION_PHASE9_ADDENDUM_C.md",
+   "registered": {
+    "commit": "ccad813",
+    "date": "2026-09-09",
+    "subject": "PRE-REGISTRATION ADDENDUM C + C-sub harness (committed before any Phase-C data)"
+   },
+   "later": []
+  },
+  "Phase 9C": {
+   "file": "PREREGISTRATION_PHASE9C.md",
+   "registered": {
+    "commit": "616b09b",
+    "date": "2026-09-10",
+    "subject": "PRE-REGISTRATION Phase 9C: H16-H18, spec-as-unit design, H11 retired"
+   },
+   "later": [
+    {
+     "commit": "045e59f",
+     "date": "2026-09-10",
+     "subject": "Phase 9C amendment 1 (pre-data): 8 verified specs, 1 repeat per arm"
+    }
+   ]
+  },
+  "Phase 9D": {
+   "file": "PREREGISTRATION_PHASE9D_OPUS55.md",
+   "registered": {
+    "commit": "17edf34",
+    "date": "2026-10-05",
+    "subject": "Pre-register Phase 9D: a held-out Opus 5.5 arm (no results)"
+   },
+   "later": [
+    {
+     "commit": "e2136cc",
+     "date": "2026-10-05",
+     "subject": "Phase 9D amendment 1: recover the exact 9C launch prompts (no data)"
+    },
+    {
+     "commit": "c6904b6",
+     "date": "2026-10-05",
+     "subject": "The hook cannot see failed tool calls; 9D amendment 2"
+    }
+   ]
+  }
+ },
+ "hypotheses": [
+  {
+   "id": "H10",
+   "prereg": "Phase 9",
+   "kind": "retired",
+   "claim": "Frontier agents act faster than Paper 2's gpt-5.4-mini loop.",
+   "original": "Retired 2026-09-10 before any cadence result; unscored.",
+   "corrected": null,
+   "sources": [
+    "PAPER3_DATAPACK.md"
+   ]
+  },
+  {
+   "id": "H11",
+   "prereg": "Phase 9",
+   "kind": "retired",
+   "claim": "Within-run inter-action intervals are bimodal.",
+   "original": "Retired 2026-09-10: unscoreable per run at these session lengths; unscored.",
+   "corrected": null,
+   "sources": [
+    "PAPER3_DATAPACK.md"
+   ]
+  },
+  {
+   "id": "H12",
+   "prereg": "Phase 9",
+   "kind": "confirmatory",
+   "claim": "At least 25% of runs cross the critical band within a run (pilot).",
+   "original": "Opus FALSIFIED, then PARTIAL 1/5 once the operator's own record was removed from the window (b5fa412); Fable FALSIFIED 0/5. Pilot only; descriptive in 9C.",
+   "corrected": null,
+   "sources": [
+    "PAPER3_DATAPACK.md",
+    "WITHDRAWALS_AND_ERRATA.md"
+   ]
+  },
+  {
+   "id": "H13",
+   "prereg": "Phase 9",
+   "kind": "confirmatory",
+   "claim": "Fewer than 20% of clamped runs drain below threshold (pilot).",
+   "original": "FALSIFIED in both arms, though not by its mechanism: Opus never clamped.",
+   "corrected": null,
+   "sources": [
+    "PAPER3_DATAPACK.md"
+   ]
+  },
+  {
+   "id": "H14a",
+   "prereg": "Phase 9",
+   "kind": "confirmatory",
+   "claim": "The sample-time CUSUM is dt-invariant at every budget.",
+   "original": "SUPPORTED (20/20).",
+   "corrected": null,
+   "sources": [
+    "PAPER3_DATAPACK.md"
+   ]
+  },
+  {
+   "id": "H14b",
+   "prereg": "Phase 9",
+   "kind": "confirmatory",
+   "claim": "The CUSUM's fire count is non-increasing in the budget divisor r.",
+   "original": "SUPPORTED (20/20 monotone).",
+   "corrected": null,
+   "sources": [
+    "PAPER3_DATAPACK.md"
+   ]
+  },
+  {
+   "id": "H14c",
+   "prereg": "Phase 9",
+   "kind": "confirmatory",
+   "claim": "The wall-clock accumulator under a 1-in-r budget equals itself at r·dt.",
+   "original": "SUPPORTED: 0 mismatches in 19,360 cells.",
+   "corrected": null,
+   "sources": [
+    "PAPER3_DATAPACK.md"
+   ]
+  },
+  {
+   "id": "H14d",
+   "prereg": "Phase 9",
+   "kind": "confirmatory",
+   "claim": "At least 11 of 20 trajectories leave the alarm regime by r = 10.",
+   "original": "SUPPORTED (19/20).",
+   "corrected": null,
+   "sources": [
+    "PAPER3_DATAPACK.md"
+   ]
+  },
+  {
+   "id": "H14e",
+   "prereg": "Phase 9",
+   "kind": "confirmatory",
+   "claim": "The edge trigger's net fires stay at or below 3 everywhere.",
+   "original": "SUPPORTED (maximum 1).",
+   "corrected": null,
+   "sources": [
+    "PAPER3_DATAPACK.md"
+   ]
+  },
+  {
+   "id": "H15",
+   "prereg": "Phase 9 addendum C",
+   "kind": "confirmatory",
+   "claim": "Frontier agents take fewer actions than the gpt-5.4-mini loop (pilot).",
+   "original": "FALSIFIED (Opus median 14 vs 9).",
+   "corrected": null,
+   "sources": [
+    "PAPER3_DATAPACK.md"
+   ]
+  },
+  {
+   "id": "9C-§3",
+   "prereg": "Phase 9C",
+   "kind": "descriptive",
+   "claim": "Action counts increase under the clean protocol relative to the pilot (direction stated in advance).",
+   "original": "Failed: Opus median 14.0 → 9.5 (decrease), Fable 7.0 → 7.0 (unchanged). Uninformative: the replication also changed the task specifications.",
+   "corrected": null,
+   "sources": [
+    "PHASE_C2_REPORT.md"
+   ]
+  },
+  {
+   "id": "H16",
+   "prereg": "Phase 9C",
+   "kind": "confirmatory",
+   "claim": "Fable 5.1's median inter-action interval is below Opus 5's, per task specification.",
+   "original": "INCONCLUSIVE: 4/8 in direction, exact Wilcoxon p = 0.8438, median difference −0.010 s.",
+   "corrected": "INCONCLUSIVE: 5/8, p = 0.3828, median difference +0.802 s.",
+   "sources": [
+    "RECONCILIATION_9C.md"
+   ]
+  },
+  {
+   "id": "H17a",
+   "prereg": "Phase 9C",
+   "kind": "confirmatory",
+   "claim": "Fable 5.1 issues more Read calls per run than Opus 5.",
+   "original": "INCONCLUSIVE: exact p = 1.0000.",
+   "corrected": "INCONCLUSIVE: p = 1.0000 (unchanged).",
+   "sources": [
+    "RECONCILIATION_9C.md"
+   ]
+  },
+  {
+   "id": "H17b",
+   "prereg": "Phase 9C",
+   "kind": "confirmatory",
+   "claim": "Read-call count predicts peak modelled frustration, controlling for action count.",
+   "original": "FALSIFIED under its clause: partial ρ = 0.470, p = 0.0795. Canonical label: did not replicate (W1).",
+   "corrected": "Unchanged: partial ρ = 0.471, p = 0.0812.",
+   "sources": [
+    "RECONCILIATION_9C.md"
+   ]
+  },
+  {
+   "id": "H18",
+   "prereg": "Phase 9C",
+   "kind": "confirmatory",
+   "claim": "No more than 20% of runs per arm reach the clamp.",
+   "original": "SUPPORTED via the zero-clamp branch (0/8, 0/8); the clamp claim is withdrawn (W2).",
+   "corrected": "Unchanged (0/8, 0/8).",
+   "sources": [
+    "RECONCILIATION_9C.md"
+   ]
+  },
+  {
+   "id": "H19",
+   "prereg": "Phase 9D",
+   "kind": "confirmatory",
+   "claim": "Held-out model (Opus 5.5): at most 2 of 8 sessions carry 5 or more qualifying observations.",
+   "original": "SUPPORTED, 0/8 (hook count).",
+   "corrected": "SUPPORTED, 0/8 (transcript count, which governs).",
+   "sources": [
+    "PHASE_9D_REPORT.md"
+   ]
+  },
+  {
+   "id": "H20",
+   "prereg": "Phase 9D",
+   "kind": "confirmatory",
+   "claim": "Held-out model: the CUSUM fires on more sessions than the no-decay accumulator at full budget.",
+   "original": "SUPPORTED, 1 vs 0 (hook count).",
+   "corrected": "SUPPORTED, 1 vs 0 (transcript count). Carries no information: the narrowest margin the clause allows. Not cited.",
+   "sources": [
+    "PHASE_9D_REPORT.md"
+   ]
+  }
+ ]
+}

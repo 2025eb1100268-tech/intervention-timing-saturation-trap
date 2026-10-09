@@ -1,0 +1,1181 @@
+{
+ "specs": [
+  "S02",
+  "S03",
+  "S05",
+  "S06",
+  "S07",
+  "S08",
+  "S09",
+  "S10"
+ ],
+ "h16": {
+  "n": 8,
+  "dropped_zeros": 0,
+  "W_plus": 20.0,
+  "W_minus": 16.0,
+  "W": 16.0,
+  "p": 0.84375,
+  "floor": 0.0078125,
+  "median_diff": -0.010499999999999954
+ },
+ "h17a": {
+  "n": 5,
+  "dropped_zeros": 3,
+  "W_plus": 7.5,
+  "W_minus": 7.5,
+  "W": 7.5,
+  "p": 1.0,
+  "floor": 0.0625,
+  "median_diff": 1.0
+ },
+ "h17b": {
+  "raw": 0.4636997283365692,
+  "read_vs_actions": 0.74034509360466,
+  "partial": 0.47010752277518214,
+  "p": 0.07955
+ },
+ "clamps": {
+  "opus": 0,
+  "fable": 0
+ },
+ "n_long": 0,
+ "runs": {
+  "S02|opus": {
+   "spec": "S02",
+   "model": "opus",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "sortedcontainers",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "3ac358631f58c1347f1d6d2d92784117db0f38ed",
+   "clean_head": "0739402173b4e2d321999621ceedb432dcf3a580",
+   "bugs_specified": 3,
+   "bugs_applied": 3,
+   "injection_log": [
+    {
+     "old": "        dict.__delitem__(self, key)\n        self._list_remove(key)",
+     "new": "        dict.__delitem__(self, key)",
+     "file": "src/sortedcontainers/sorteddict.py",
+     "applied": true
+    },
+    {
+     "old": "        if key not in self:\n            self._list_add(key)",
+     "new": "        if key in self:\n            self._list_add(key)",
+     "file": "src/sortedcontainers/sorteddict.py",
+     "applied": true
+    },
+    {
+     "old": "        return key, self[key]",
+     "new": "        return self[key], key",
+     "file": "src/sortedcontainers/sorteddict.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:12:03.898283+05:30",
+   "window_close": "2026-09-10T23:13:13.538585+05:30",
+   "n_actions": 7,
+   "n_dt": 6,
+   "tools_used": {
+    "Bash": 3,
+    "Edit": 3,
+    "Read": 1
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.7143,
+   "dt_seconds": [
+    2.908364,
+    16.712808,
+    4.707,
+    4.644721,
+    6.214087,
+    10.017628
+   ],
+   "dt_stats": {
+    "min": 2.908,
+    "p25": 4.66,
+    "median": 5.461,
+    "p75": 9.067,
+    "p90": 13.365,
+    "max": 16.713
+   },
+   "derived": {
+    "delta_star_s": 35.95,
+    "r_starv": 1.4,
+    "r_cliff": 6.58
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "..........................................................               [100%]\n58 passed in 0.08s\n"
+  },
+  "S02|fable": {
+   "spec": "S02",
+   "model": "fable",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "sortedcontainers",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "3ac358631f58c1347f1d6d2d92784117db0f38ed",
+   "clean_head": "f251a43c4a825ae2211ed6ede6087cf9ccb5d7de",
+   "bugs_specified": 3,
+   "bugs_applied": 3,
+   "injection_log": [
+    {
+     "old": "        dict.__delitem__(self, key)\n        self._list_remove(key)",
+     "new": "        dict.__delitem__(self, key)",
+     "file": "src/sortedcontainers/sorteddict.py",
+     "applied": true
+    },
+    {
+     "old": "        if key not in self:\n            self._list_add(key)",
+     "new": "        if key in self:\n            self._list_add(key)",
+     "file": "src/sortedcontainers/sorteddict.py",
+     "applied": true
+    },
+    {
+     "old": "        return key, self[key]",
+     "new": "        return self[key], key",
+     "file": "src/sortedcontainers/sorteddict.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:13:14.668619+05:30",
+   "window_close": "2026-09-10T23:14:36.022710+05:30",
+   "n_actions": 6,
+   "n_dt": 5,
+   "tools_used": {
+    "Edit": 3,
+    "Grep": 1,
+    "PowerShell": 1,
+    "Read": 1
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.6667,
+   "dt_seconds": [
+    17.50779,
+    1.674681,
+    1.439267,
+    1.547263,
+    25.097499
+   ],
+   "dt_stats": {
+    "min": 1.439,
+    "p25": 1.547,
+    "median": 1.675,
+    "p75": 17.508,
+    "p90": 22.062,
+    "max": 25.097
+   },
+   "derived": {
+    "delta_star_s": 33.36,
+    "r_starv": 1.2,
+    "r_cliff": 19.92
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "..........................................................               [100%]\n58 passed in 0.08s\n"
+  },
+  "S03|opus": {
+   "spec": "S03",
+   "model": "opus",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "sortedcontainers",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "3ac358631f58c1347f1d6d2d92784117db0f38ed",
+   "clean_head": "9389b64c32c89f5a8cc9476d0c98c41da075d8f5",
+   "bugs_specified": 3,
+   "bugs_applied": 3,
+   "injection_log": [
+    {
+     "old": "        return value in self._set",
+     "new": "        return value not in self._set",
+     "file": "src/sortedcontainers/sortedset.py",
+     "applied": true
+    },
+    {
+     "old": "            _set.add(value)\n            self._list.add(value)",
+     "new": "            _set.add(value)",
+     "file": "src/sortedcontainers/sortedset.py",
+     "applied": true
+    },
+    {
+     "old": "            _set.remove(value)\n            self._list.remove(value)",
+     "new": "            _set.remove(value)",
+     "file": "src/sortedcontainers/sortedset.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:14:37.313027+05:30",
+   "window_close": "2026-09-10T23:16:10.118282+05:30",
+   "n_actions": 10,
+   "n_dt": 9,
+   "tools_used": {
+    "Bash": 5,
+    "Edit": 3,
+    "Grep": 1,
+    "Read": 1
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.5,
+   "dt_seconds": [
+    6.449457,
+    2.834561,
+    7.132638,
+    6.360207,
+    5.712512,
+    4.926969,
+    5.061474,
+    7.68473,
+    14.125506
+   ],
+   "dt_stats": {
+    "min": 2.835,
+    "p25": 5.061,
+    "median": 6.36,
+    "p75": 7.133,
+    "p90": 8.973,
+    "max": 14.126
+   },
+   "derived": {
+    "delta_star_s": 24.52,
+    "r_starv": 2.0,
+    "r_cliff": 3.86
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "..................................................                       [100%]\n50 passed in 0.11s\n"
+  },
+  "S03|fable": {
+   "spec": "S03",
+   "model": "fable",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "sortedcontainers",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "3ac358631f58c1347f1d6d2d92784117db0f38ed",
+   "clean_head": "cf70b03f8bb5c1ac9118fd59586cabda4019faef",
+   "bugs_specified": 3,
+   "bugs_applied": 3,
+   "injection_log": [
+    {
+     "old": "        return value in self._set",
+     "new": "        return value not in self._set",
+     "file": "src/sortedcontainers/sortedset.py",
+     "applied": true
+    },
+    {
+     "old": "            _set.add(value)\n            self._list.add(value)",
+     "new": "            _set.add(value)",
+     "file": "src/sortedcontainers/sortedset.py",
+     "applied": true
+    },
+    {
+     "old": "            _set.remove(value)\n            self._list.remove(value)",
+     "new": "            _set.remove(value)",
+     "file": "src/sortedcontainers/sortedset.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:16:11.281099+05:30",
+   "window_close": "2026-09-10T23:17:29.578733+05:30",
+   "n_actions": 7,
+   "n_dt": 6,
+   "tools_used": {
+    "Edit": 3,
+    "PowerShell": 2,
+    "Read": 2
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.5714,
+   "dt_seconds": [
+    0.66943,
+    17.408992,
+    1.738512,
+    1.575383,
+    9.099474,
+    9.345042
+   ],
+   "dt_stats": {
+    "min": 0.669,
+    "p25": 1.616,
+    "median": 5.419,
+    "p75": 9.284,
+    "p90": 13.377,
+    "max": 17.409
+   },
+   "derived": {
+    "delta_star_s": 28.27,
+    "r_starv": 1.4,
+    "r_cliff": 5.22
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "..................................................                       [100%]\n50 passed in 0.12s\n"
+  },
+  "S05|opus": {
+   "spec": "S05",
+   "model": "opus",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "toolz",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+   "clean_head": "37e951b29467af18355934887b9b81e404d9fe10",
+   "bugs_specified": 3,
+   "bugs_applied": 3,
+   "injection_log": [
+    {
+     "old": "    return itertools.islice(seq, n)",
+     "new": "    return itertools.islice(seq, n + 1)",
+     "file": "toolz/itertoolz.py",
+     "applied": true
+    },
+    {
+     "old": "    return itertools.islice(seq, n, None)",
+     "new": "    return itertools.islice(seq, n + 1, None)",
+     "file": "toolz/itertoolz.py",
+     "applied": true
+    },
+    {
+     "old": "    return itertools.islice(seq, 0, None, n)",
+     "new": "    return itertools.islice(seq, 1, None, n)",
+     "file": "toolz/itertoolz.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:17:30.898087+05:30",
+   "window_close": "2026-09-10T23:19:07.402350+05:30",
+   "n_actions": 14,
+   "n_dt": 13,
+   "tools_used": {
+    "Bash": 5,
+    "Edit": 3,
+    "Grep": 2,
+    "Read": 4
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.5,
+   "dt_seconds": [
+    9.039749,
+    0.215112,
+    5.878199,
+    1.102861,
+    0.900572,
+    7.558474,
+    3.727956,
+    7.190956,
+    4.278659,
+    5.233684,
+    4.65556,
+    7.5217,
+    7.602824
+   ],
+   "dt_stats": {
+    "min": 0.215,
+    "p25": 3.728,
+    "median": 5.234,
+    "p75": 7.522,
+    "p90": 7.594,
+    "max": 9.04
+   },
+   "derived": {
+    "delta_star_s": 24.52,
+    "r_starv": 2.8,
+    "r_cliff": 4.69
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "..................................................                       [100%]\n50 passed in 0.08s\n"
+  },
+  "S05|fable": {
+   "spec": "S05",
+   "model": "fable",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "toolz",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+   "clean_head": "341853fd4508c193172408be27feababf872c8d6",
+   "bugs_specified": 3,
+   "bugs_applied": 3,
+   "injection_log": [
+    {
+     "old": "    return itertools.islice(seq, n)",
+     "new": "    return itertools.islice(seq, n + 1)",
+     "file": "toolz/itertoolz.py",
+     "applied": true
+    },
+    {
+     "old": "    return itertools.islice(seq, n, None)",
+     "new": "    return itertools.islice(seq, n + 1, None)",
+     "file": "toolz/itertoolz.py",
+     "applied": true
+    },
+    {
+     "old": "    return itertools.islice(seq, 0, None, n)",
+     "new": "    return itertools.islice(seq, 1, None, n)",
+     "file": "toolz/itertoolz.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:19:08.652571+05:30",
+   "window_close": "2026-09-10T23:20:03.084198+05:30",
+   "n_actions": 5,
+   "n_dt": 4,
+   "tools_used": {
+    "Edit": 3,
+    "PowerShell": 1,
+    "Read": 1
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.8,
+   "dt_seconds": [
+    8.866519,
+    1.290426,
+    1.155352,
+    8.305535
+   ],
+   "dt_stats": {
+    "min": 1.155,
+    "p25": 1.257,
+    "median": 4.798,
+    "p75": 8.446,
+    "p90": 8.698,
+    "max": 8.867
+   },
+   "derived": {
+    "delta_star_s": 40.7,
+    "r_starv": 1.0,
+    "r_cliff": 8.48
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "..................................................                       [100%]\n50 passed in 0.08s\n"
+  },
+  "S06|opus": {
+   "spec": "S06",
+   "model": "opus",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "toolz",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+   "clean_head": "f0bfe2c0d86dc531c1b97826028f5c28e628b0ae",
+   "bugs_specified": 1,
+   "bugs_applied": 1,
+   "injection_log": [
+    {
+     "old": "    rv = factory()\n    rv.update(zip(d.keys(), map(func, d.values())))",
+     "new": "    rv = factory()\n    rv.update(zip(map(func, d.values()), d.keys()))",
+     "file": "toolz/dicttoolz.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:20:04.533866+05:30",
+   "window_close": "2026-09-10T23:20:55.816732+05:30",
+   "n_actions": 6,
+   "n_dt": 5,
+   "tools_used": {
+    "Bash": 5,
+    "Edit": 1
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.5,
+   "dt_seconds": [
+    3.78355,
+    4.001873,
+    3.494357,
+    7.432923,
+    7.404952
+   ],
+   "dt_stats": {
+    "min": 3.494,
+    "p25": 3.784,
+    "median": 4.002,
+    "p75": 7.405,
+    "p90": 7.422,
+    "max": 7.433
+   },
+   "derived": {
+    "delta_star_s": 24.52,
+    "r_starv": 1.2,
+    "r_cliff": 6.13
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "...............................................                          [100%]\n47 passed in 0.07s\n"
+  },
+  "S06|fable": {
+   "spec": "S06",
+   "model": "fable",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "toolz",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+   "clean_head": "6d98b6887dc3482e1c389eef5c6cd4577e31aed2",
+   "bugs_specified": 1,
+   "bugs_applied": 1,
+   "injection_log": [
+    {
+     "old": "    rv = factory()\n    rv.update(zip(d.keys(), map(func, d.values())))",
+     "new": "    rv = factory()\n    rv.update(zip(map(func, d.values()), d.keys()))",
+     "file": "toolz/dicttoolz.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:20:56.958346+05:30",
+   "window_close": "2026-09-10T23:21:40.989075+05:30",
+   "n_actions": 5,
+   "n_dt": 4,
+   "tools_used": {
+    "Bash": 2,
+    "Edit": 1,
+    "Grep": 1,
+    "Read": 1
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.4,
+   "dt_seconds": [
+    3.958654,
+    5.888508,
+    3.200004,
+    6.09997
+   ],
+   "dt_stats": {
+    "min": 3.2,
+    "p25": 3.769,
+    "median": 4.924,
+    "p75": 5.941,
+    "p90": 6.037,
+    "max": 6.1
+   },
+   "derived": {
+    "delta_star_s": 19.39,
+    "r_starv": 1.0,
+    "r_cliff": 3.94
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "...............................................                          [100%]\n47 passed in 0.07s\n"
+  },
+  "S07|opus": {
+   "spec": "S07",
+   "model": "opus",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "toolz",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+   "clean_head": "e432a81124653a68498bbdb937d0a0a655598966",
+   "bugs_specified": 2,
+   "bugs_applied": 2,
+   "injection_log": [
+    {
+     "old": "    return compose(not_, func)",
+     "new": "    return compose(func, not_)",
+     "file": "toolz/functoolz.py",
+     "applied": true
+    },
+    {
+     "old": "    return func(b, a)",
+     "new": "    return func(a, b)",
+     "file": "toolz/functoolz.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:21:42.246271+05:30",
+   "window_close": "2026-09-10T23:22:47.827126+05:30",
+   "n_actions": 9,
+   "n_dt": 8,
+   "tools_used": {
+    "Bash": 3,
+    "Edit": 2,
+    "Grep": 1,
+    "Read": 3
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.5556,
+   "dt_seconds": [
+    3.650088,
+    2.829843,
+    2.663558,
+    5.786447,
+    3.05833,
+    4.312931,
+    6.526286,
+    7.035046
+   ],
+   "dt_stats": {
+    "min": 2.664,
+    "p25": 3.001,
+    "median": 3.982,
+    "p75": 5.971,
+    "p90": 6.679,
+    "max": 7.035
+   },
+   "derived": {
+    "delta_star_s": 27.43,
+    "r_starv": 1.8,
+    "r_cliff": 6.89
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "......................................                                   [100%]\n38 passed in 0.07s\n"
+  },
+  "S07|fable": {
+   "spec": "S07",
+   "model": "fable",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "toolz",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+   "clean_head": "be2ffb068b9c886ee64eaa5c8d4a6ea8f1e116db",
+   "bugs_specified": 2,
+   "bugs_applied": 2,
+   "injection_log": [
+    {
+     "old": "    return compose(not_, func)",
+     "new": "    return compose(func, not_)",
+     "file": "toolz/functoolz.py",
+     "applied": true
+    },
+    {
+     "old": "    return func(b, a)",
+     "new": "    return func(a, b)",
+     "file": "toolz/functoolz.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:22:48.997374+05:30",
+   "window_close": "2026-09-10T23:23:48.361572+05:30",
+   "n_actions": 8,
+   "n_dt": 7,
+   "tools_used": {
+    "Bash": 2,
+    "Edit": 2,
+    "Grep": 2,
+    "Read": 2
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.625,
+   "dt_seconds": [
+    5.024942,
+    4.438606,
+    1.057143,
+    1.455853,
+    8.528577,
+    1.220288,
+    8.649669
+   ],
+   "dt_stats": {
+    "min": 1.057,
+    "p25": 1.338,
+    "median": 4.439,
+    "p75": 6.777,
+    "p90": 8.577,
+    "max": 8.65
+   },
+   "derived": {
+    "delta_star_s": 31.12,
+    "r_starv": 1.6,
+    "r_cliff": 7.01
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "......................................                                   [100%]\n38 passed in 0.06s\n"
+  },
+  "S08|opus": {
+   "spec": "S08",
+   "model": "opus",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "toolz",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+   "clean_head": "e69555143e8745c994d9ae42240250b5052a941b",
+   "bugs_specified": 2,
+   "bugs_applied": 2,
+   "injection_log": [
+    {
+     "old": "    if not callable(key):",
+     "new": "    if callable(key):",
+     "file": "toolz/recipes.py",
+     "applied": true
+    },
+    {
+     "old": "    return map(tuple, pluck(1, itertools.groupby(seq, key=func)))",
+     "new": "    return map(tuple, pluck(0, itertools.groupby(seq, key=func)))",
+     "file": "toolz/recipes.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:23:49.526245+05:30",
+   "window_close": "2026-09-10T23:25:41.258969+05:30",
+   "n_actions": 12,
+   "n_dt": 11,
+   "tools_used": {
+    "Bash": 9,
+    "Edit": 2,
+    "Read": 1
+   },
+   "git_recon_calls": 2,
+   "error_rate": 0.1667,
+   "dt_seconds": [
+    0.203532,
+    5.580001,
+    6.359152,
+    11.44677,
+    3.94783,
+    4.032494,
+    1.041744,
+    17.794285,
+    14.671381,
+    2.931891,
+    8.942342
+   ],
+   "dt_stats": {
+    "min": 0.204,
+    "p25": 3.44,
+    "median": 5.58,
+    "p75": 10.195,
+    "p90": 14.671,
+    "max": 17.794
+   },
+   "derived": {
+    "delta_star_s": 7.87,
+    "r_starv": 2.4,
+    "r_cliff": 1.41
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "..                                                                       [100%]\n2 passed in 0.03s\n"
+  },
+  "S08|fable": {
+   "spec": "S08",
+   "model": "fable",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "toolz",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "568c2b8393973cd172a466546c9d95779c452438",
+   "clean_head": "a0807e216960e2d7991d77947cc4e9c11ebf3adb",
+   "bugs_specified": 2,
+   "bugs_applied": 2,
+   "injection_log": [
+    {
+     "old": "    if not callable(key):",
+     "new": "    if callable(key):",
+     "file": "toolz/recipes.py",
+     "applied": true
+    },
+    {
+     "old": "    return map(tuple, pluck(1, itertools.groupby(seq, key=func)))",
+     "new": "    return map(tuple, pluck(0, itertools.groupby(seq, key=func)))",
+     "file": "toolz/recipes.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:25:42.319270+05:30",
+   "window_close": "2026-09-10T23:26:54.264536+05:30",
+   "n_actions": 6,
+   "n_dt": 5,
+   "tools_used": {
+    "Edit": 2,
+    "PowerShell": 2,
+    "Read": 2
+   },
+   "git_recon_calls": 1,
+   "error_rate": 0.0,
+   "dt_seconds": [
+    11.085476,
+    1.446322,
+    1.018727,
+    7.028231,
+    9.915901
+   ],
+   "dt_stats": {
+    "min": 1.019,
+    "p25": 1.446,
+    "median": 7.028,
+    "p75": 9.916,
+    "p90": 10.618,
+    "max": 11.085
+   },
+   "derived": {
+    "delta_star_s": null,
+    "r_starv": 1.2,
+    "r_cliff": null
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "..                                                                       [100%]\n2 passed in 0.03s\n"
+  },
+  "S09|opus": {
+   "spec": "S09",
+   "model": "opus",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "more-itertools",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "5692cd838d2b0b55ff46c5f9934b79a0b069027e",
+   "clean_head": "f11b9fef6332faf39d7ade32325a9db76881051e",
+   "bugs_specified": 2,
+   "bugs_applied": 2,
+   "injection_log": [
+    {
+     "old": "    return next(islice(iterable, n, None), default)",
+     "new": "    return next(islice(iterable, n + 1, None), default)",
+     "file": "more_itertools/recipes.py",
+     "applied": true
+    },
+    {
+     "old": "    return list(islice(iterable, n))",
+     "new": "    return list(islice(iterable, max(0, n - 1)))",
+     "file": "more_itertools/recipes.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:26:55.623309+05:30",
+   "window_close": "2026-09-10T23:35:02.162300+05:30",
+   "n_actions": 20,
+   "n_dt": 19,
+   "tools_used": {
+    "Bash": 14,
+    "Edit": 3,
+    "Read": 3
+   },
+   "git_recon_calls": 1,
+   "error_rate": 0.5,
+   "dt_seconds": [
+    3.857062,
+    9.850658,
+    4.007043,
+    2.555478,
+    59.98849,
+    108.570344,
+    4.415399,
+    10.131719,
+    3.224117,
+    3.366242,
+    4.833301,
+    7.028462,
+    7.154808,
+    1.172329,
+    23.141457,
+    5.205101,
+    3.721418,
+    35.77775,
+    23.710021
+   ],
+   "dt_stats": {
+    "min": 1.172,
+    "p25": 3.789,
+    "median": 5.205,
+    "p75": 16.637,
+    "p90": 40.62,
+    "max": 108.57
+   },
+   "derived": {
+    "delta_star_s": 24.52,
+    "r_starv": 4.0,
+    "r_cliff": 4.71
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "....................................................................................................... [ 73%]\n...................... [ 89%]\n...............                   [100%]\n140 passed, 9850 subtests passed in 9.00s\n"
+  },
+  "S09|fable": {
+   "spec": "S09",
+   "model": "fable",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "more-itertools",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "5692cd838d2b0b55ff46c5f9934b79a0b069027e",
+   "clean_head": "574aea033626f8b7b8ca14895710ee9d14bfb9ad",
+   "bugs_specified": 2,
+   "bugs_applied": 2,
+   "injection_log": [
+    {
+     "old": "    return next(islice(iterable, n, None), default)",
+     "new": "    return next(islice(iterable, n + 1, None), default)",
+     "file": "more_itertools/recipes.py",
+     "applied": true
+    },
+    {
+     "old": "    return list(islice(iterable, n))",
+     "new": "    return list(islice(iterable, max(0, n - 1)))",
+     "file": "more_itertools/recipes.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:35:12.294934+05:30",
+   "window_close": "2026-09-10T23:40:41.107472+05:30",
+   "n_actions": 17,
+   "n_dt": 16,
+   "tools_used": {
+    "Bash": 7,
+    "Edit": 2,
+    "Grep": 2,
+    "Read": 3,
+    "TaskStop": 2,
+    "ToolSearch": 1
+   },
+   "git_recon_calls": 2,
+   "error_rate": 0.2941,
+   "dt_seconds": [
+    3.934235,
+    0.883917,
+    49.927286,
+    8.516482,
+    6.982194,
+    9.529657,
+    0.207019,
+    5.002065,
+    21.330827,
+    22.200128,
+    1.365852,
+    0.339046,
+    13.567512,
+    1.22712,
+    23.614228,
+    7.662131
+   ],
+   "dt_stats": {
+    "min": 0.207,
+    "p25": 1.331,
+    "median": 7.322,
+    "p75": 15.508,
+    "p90": 22.907,
+    "max": 49.927
+   },
+   "derived": {
+    "delta_star_s": 14.09,
+    "r_starv": 3.4,
+    "r_cliff": 1.92
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": "....................................................................................................... [ 73%]\n...................... [ 89%]\n...............                   [100%]\n140 passed, 9850 subtests passed in 8.98s\n"
+  },
+  "S10|opus": {
+   "spec": "S10",
+   "model": "opus",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "more-itertools",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "5692cd838d2b0b55ff46c5f9934b79a0b069027e",
+   "clean_head": "b06ff0ebd9db9825df99ad43f014a97d5017da0b",
+   "bugs_specified": 1,
+   "bugs_applied": 1,
+   "injection_log": [
+    {
+     "old": "        if len(chunk) != n:",
+     "new": "        if len(chunk) > n:",
+     "file": "more_itertools/more.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:40:51.294843+05:30",
+   "window_close": "2026-09-10T23:42:03.282668+05:30",
+   "n_actions": 5,
+   "n_dt": 4,
+   "tools_used": {
+    "Bash": 4,
+    "Edit": 1
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.6,
+   "dt_seconds": [
+    3.57097,
+    5.760325,
+    11.605504,
+    21.067247
+   ],
+   "dt_stats": {
+    "min": 3.571,
+    "p25": 5.213,
+    "median": 8.683,
+    "p75": 13.971,
+    "p90": 18.229,
+    "max": 21.067
+   },
+   "derived": {
+    "delta_star_s": 29.78,
+    "r_starv": 1.0,
+    "r_cliff": 3.43
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": ".................................................................................................... [ 62%]\n.................................... [ 69%]\n.............................................................................................. [ 85%]\n.............................................................. [ 95%]\n......................... [100%]\n585 passed, 10080 subtests passed in 4.63s\n"
+  },
+  "S10|fable": {
+   "spec": "S10",
+   "model": "fable",
+   "effort": "override-from-opus5-session",
+   "repeat": 1,
+   "repo": "more-itertools",
+   "protocol": "clean-git-orphan-root-v2",
+   "pinned_sha": "5692cd838d2b0b55ff46c5f9934b79a0b069027e",
+   "clean_head": "d0c3a09e88a49e9531ff8be3d59ba219d1c1938d",
+   "bugs_specified": 1,
+   "bugs_applied": 1,
+   "injection_log": [
+    {
+     "old": "        if len(chunk) != n:",
+     "new": "        if len(chunk) > n:",
+     "file": "more_itertools/more.py",
+     "applied": true
+    }
+   ],
+   "assertions": {
+    "status_porcelain_empty": true,
+    "diff_head_empty": true,
+    "single_commit": true,
+    "no_other_branch": true,
+    "no_modification_hunk_in_history": true,
+    "injected_bug_present_in_worktree": true
+   },
+   "window_open": "2026-09-10T23:42:09.151962+05:30",
+   "window_close": "2026-09-10T23:43:05.641267+05:30",
+   "n_actions": 4,
+   "n_dt": 3,
+   "tools_used": {
+    "Bash": 2,
+    "Edit": 1,
+    "Grep": 1
+   },
+   "git_recon_calls": 0,
+   "error_rate": 0.75,
+   "dt_seconds": [
+    4.175013,
+    5.22369,
+    12.539475
+   ],
+   "dt_stats": {
+    "min": 4.175,
+    "p25": 4.699,
+    "median": 5.224,
+    "p75": 8.882,
+    "p90": 11.076,
+    "max": 12.539
+   },
+   "derived": {
+    "delta_star_s": 37.91,
+    "r_starv": 0.8,
+    "r_cliff": 7.26
+   },
+   "final_tests_green": true,
+   "final_pytest_tail": ".................................................................................................... [ 62%]\n.................................... [ 69%]\n.............................................................................................. [ 85%]\n.............................................................. [ 95%]\n......................... [100%]\n585 passed, 10080 subtests passed in 4.58s\n"
+  }
+ }
+}

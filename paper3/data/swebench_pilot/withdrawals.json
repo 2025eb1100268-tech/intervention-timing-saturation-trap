@@ -1,0 +1,149 @@
+{
+ "label": "DID NOT REPLICATE",
+ "withdrawals": [
+  {
+   "id": "W1",
+   "name": "Read-burst mechanism",
+   "label": "DID NOT REPLICATE",
+   "claim_withdrawn": "Fable 5.1 issues bursts of file reads that drive a stateful monitor to its alarm clamp, making tool-use strategy the mechanism by which model choice moves a monitor's regime.",
+   "statement": "The Read-burst mechanism did not replicate. Under the clean protocol, sessions in both arms made 0–4 file reads (H17a, exact Wilcoxon p = 1.00), and read count did not predict peak modelled frustration once session length was controlled (partial ρ = 0.47, permutation p = 0.081, n = 16; p = 0.080 as originally scored, before the failed tool calls the logging hook never saw were restored). The pilot's evidence was a single session.",
+   "preregistered_score": "H17a INCONCLUSIVE; H17b FALSIFIED under its clause as written (\"falsified if the partial is not distinguishable from zero\").",
+   "why_label_differs": "The H17b clause equated non-significance with falsification. A partial of 0.47 at p = 0.081 (0.080 as originally scored) with n = 16 is absence of evidence, not evidence of absence, so the accurate label is did-not-replicate. The pre-registered consequence -- withdrawal from the paper -- is the same under either label. Both are recorded; the pre-registered score is not rewritten.",
+   "not_a_claim_that": "file-reading bursts cannot charge an accumulator. They can; one did, once. We have no replicated instance and no evidence that either model does it systematically.",
+   "pilot_evidence": "runE, Fable 5.1: 25 reads vs 4 for Opus 5; the only clamp in ten pilot runs; A6 fired 28 times vs 0.",
+   "commits": {
+    "pilot": "b5fa412",
+    "preregistration": "616b09b",
+    "result": "c64089e"
+   }
+  },
+  {
+   "id": "W2",
+   "name": "Saturation trap at frontier cadence (the clamp)",
+   "label": "DID NOT REPLICATE",
+   "claim_withdrawn": "Paper 1's saturation trap still closes at frontier-model cadence: a Fable 5.1 session drove the frozen monitor to the 1.0 clamp.",
+   "statement": "The frontier-cadence clamp did not replicate. Under the clean protocol no session in either arm reached the 1.0 clamp (0 of 8 and 0 of 8; maximum modelled frustration 0.679 and 0.486, or 0.679 and 0.398 as originally scored -- the logging hook never saw failed tool calls, so the replay was missing early errors in the Fable 5.1 arm). The pilot's evidence was a single session.",
+   "preregistered_score": "H18 SUPPORTED via its pre-stated zero-clamp branch, which the pre-registration defined as withdrawing the clamp claim.",
+   "why_label_differs": "H18 predicted clamps would be rare and was supported; what is withdrawn is the pilot's positive claim that the trap closes at frontier cadence, which has no replicated instance.",
+   "not_a_claim_that": "the trap cannot close. It closes on the legacy corpus at 1.53 s (Paper 2; Phase B). The clean-protocol sessions were short enough that the monitor was starved of evidence before it could saturate.",
+   "pilot_evidence": "Opus 5 0/5 clamps, Fable 5.1 1/5 (runE).",
+   "commits": {
+    "pilot": "b5fa412",
+    "preregistration": "616b09b",
+    "result": "c64089e"
+   }
+  },
+  {
+   "id": "W3",
+   "name": "Cadence difference between models",
+   "label": "DID NOT REPLICATE",
+   "claim_withdrawn": "Fable 5.1 acts faster than Opus 5 (pooled median 1.20 s vs 5.11 s, Mann–Whitney p = 2.1×10⁻⁵), moving the monitor between regimes (9/20 vs 17/20 trajectories in the alarm regime).",
+   "statement": "The model difference in cadence did not replicate. The pilot's p = 2.1×10⁻⁵ treated time gaps within a session as independent; at the correct unit, the session, it was p = 0.125 at n = 5, where the smallest achievable p is 0.0625. The clean-protocol replication found 5 of 8 tasks in the predicted direction, exact Wilcoxon p = 0.38, median difference +0.80 s (as originally scored: 4 of 8, p = 0.84, −0.01 s, from a logging hook that never saw failed tool calls and so dropped the Fable 5.1 arm's opening actions). The corrected values lean toward the pilot's direction and remain indistinguishable from no difference at this n.",
+   "preregistered_score": "H16 INCONCLUSIVE.",
+   "why_label_differs": "Label and score agree: the prediction was neither supported nor contradicted.",
+   "not_a_claim_that": "the two models run at the same cadence. We cannot distinguish them at this n.",
+   "pilot_evidence": "Pooled over intervals: 65 vs 72 gaps, treated as independent.",
+   "commits": {
+    "pilot": "b5fa412",
+    "correction": "616b09b",
+    "result": "c64089e"
+   }
+  }
+ ],
+ "errata": [
+  {
+   "id": "E0",
+   "name": "Paper 1 — decay never executed in the replays (Δt = 0)",
+   "paper": "Paper 1, arXiv 2606.04296",
+   "published_text": [
+    {
+     "where": "§3 The Diagnostic Probe and the Three-Layer Architecture",
+     "text": "A continuous 18-dimensional affect vector, each dimension in [0,1], with per-emotion exponential decay toward a baseline of 0.10"
+    }
+   ],
+   "correction": "Consequences: every [P1] firing rate and replay-consistency number is unaffected (they are deterministic functions of the Δt = 0 pipeline), but the mechanistic account—agents accumulate negative affect faster than it decays—was wrong. There was no race between accumulation and decay; there was only accumulation.",
+   "correction_source": "Paper 2 (arXiv:2606.19386v1), §3 'The Δt = 0 Audit and Erratum', quoted verbatim",
+   "what_stands": "Every Paper 1 firing rate and replay-consistency number; only the mechanism changes.",
+   "disposition": "Published in Paper 2 v1 §3. Carried verbatim in Paper 1 v2 as item (a) of its erratum notice (branch paper1-arxiv-v2), in place of DT_AUDIT.md's internal one-line finding.",
+   "sources": [
+    "DT_AUDIT.md (code-path trace)",
+    "paper2/sections/body.tex at 4ad51fd"
+   ]
+  },
+  {
+   "id": "E1",
+   "name": "Paper 1 — attribution of saturation to agent non-recovery",
+   "paper": "Paper 1, arXiv 2606.04296",
+   "published_text": [
+    {
+     "where": "§5 The State Saturation Trap",
+     "text": "A human developer crossing this threshold would typically engage in a recovery action, such as stepping away, reframing, or seeking help, allowing the state to decay. The agents show no such recovery signal, so the state remains saturated."
+    },
+    {
+     "where": "§8 Why the Detectors Fail: A Joint Reading",
+     "text": "This failure is independent of label subjectivity; it is inherent to the trigger and the agent's lack of recovery, and it reproduces across all five trajectories."
+    }
+   ],
+   "correction": "The observer used in Paper 1 has no channel through which a recovery signal could register. None of its eight rules emits a negative change: 0 of the 221 signals it emitted on Paper 1's five trajectories, and 0 of 765 across the twenty-trajectory corpus that contains them. The only emotion that opposes frustration, hope, is emitted by no rule, and the rule that detects reframing language adds confusion rather than removing frustration. The absence of a recovery signal was therefore guaranteed by the instrument and is not evidence about the agents. Recovery-shaped language does occur: by a frozen lexical proxy, on 21 of 218 steps in Paper 1's five trajectories and on 43 of 714 across the twenty. It has no path to the monitor's state.",
+   "what_stands": "The saturation itself and the inter-rater result. Only the attribution to the agents changes. This is the second correction to Paper 1; Paper 2 corrected its decay mechanism (Δt = 0).",
+   "verification": "Both quotations were confirmed character-for-character by the author against the PDF of arXiv 2606.04296v1, the only version posted (checked 2026-10-05). The abstract's annotator sentence, retrieved verbatim from the arXiv API rather than through a summarising fetch, reads: 'three trained annotators using one rubric on a 56-action trajectory agree on where to intervene only slightly above chance'. Note 'one rubric', not 'the same rubric'. The PDF itself (LaTeX source, arXiv e-print retrieved 2026-10-07) reads 'the same rubric' in its abstract, so the discrepancy is between the listing and the PDF; the v2 listing abstract is aligned to the PDF.",
+   "still_open": "(1) Prepared, not posted. Paper 2's published text says 'We issue an erratum in [P1]-v2'. Paper 1 v2 (branch paper1-arxiv-v2, 78bd2b3 and later) carries both corrections in a notice before the abstract, each quoted verbatim -- Paper 2's published Delta-t = 0 consequence paragraph (E0) and this one -- and footnotes the abstract clause and the two quoted sentences; scripts/lint_errata_notices.py checks the quotations. Posting it makes Paper 2's sentence true. (2) Does not apply: Paper 1 does not describe the observer's hedge-word rule; its only mention of hedging is the A9 regex trigger's dictionary.",
+   "sources": [
+    "OBSERVER_CAPABILITY_AUDIT.md (47e177d; five-trajectory counts §8, b8e72b1)",
+    "LEXICAL_RECOVERY_PROXY.md (a451e66)"
+   ]
+  },
+  {
+   "id": "E2",
+   "name": "Paper 2 — repositioning",
+   "paper": "Paper 2, arXiv 2606.19386",
+   "items": [
+    {
+     "id": "E2a",
+     "published_text": [
+      {
+       "where": "Abstract",
+       "text": "critical band of the same order of magnitude, Spearman ρ = 0.530 with the engine's"
+      },
+      {
+       "where": "§8 (body.tex l.337 of the posted source)",
+       "text": "Per-trajectory critical Δts correlate between instruments at Spearman ρ = 0.530."
+      }
+     ],
+     "correction": "This correlation carries no information beyond the two instruments' shared dependence on error rate. It equals the product of each instrument's correlation with error rate to three decimals (0.899 × 0.593 = 0.533), and the partial correlation controlling for error rate is −0.007 (permutation p = 0.97). Paper 2's class-level conclusion is unaffected: it rests on both instruments showing the same two regimes on identical streams (20/20 in the alarm regime at Δt = 0; none crossing threshold at Δt ≥ 150 s), not on this correlation.",
+     "disposition": "Corrected in Paper 2 itself: arXiv v2 quotes this correction verbatim in its §3 erratum and footnotes both passages (branch paper2-arxiv-v2, a5f291b). Also stated in Paper 3.",
+     "source": "PAPER3_DATAPACK.md §5.2 (77d2dab)"
+    },
+    {
+     "id": "E2b",
+     "published_text": [
+      {
+       "where": "Abstract",
+       "text": "Hook-instrumented real agent runs measure inter-action latency at median 1.53 s (p90 2.33 s)"
+      },
+      {
+       "where": "§5 Measured Real Cadence (body.tex l.215 of the posted source)",
+       "text": "We therefore instrumented a real agent loop directly: a tool-call hook logs an ISO wall-clock timestamp, tool name, and result status for every action"
+      }
+     ],
+     "correction": "The five runs were not logged by the Claude Code hook. They were driven by a scriptable loop issuing one tool call per turn to gpt-5.4-mini, which wrote the same PostToolUse-schema record natively after each observation. The hook, which produces the identical format, was installed but was not the source of these timestamps. Paper 2 does not name the model. No number changes: the timestamp is taken at the same point in each cycle, after the tool's observation.",
+     "disposition": "Corrected in Paper 2 itself, not here: arXiv v2 of Paper 2 adds a paragraph 'Erratum to this paper (v2)' to its §3, alongside the Δt = 0 erratum, and corrects the abstract, §1, §5, §9 and the Instrumentation appendix (branch paper2-arxiv-v2, c20c244; this correction quoted verbatim since a5f291b). Paper 3 cites the v2 erratum and does not restate it in its related work.",
+     "source": "data/live_runs/TIMING_REPORT.md; heart_instrument/agent_runner.py (MODEL = \"gpt-5.4-mini\", parallel_tool_calls=False)"
+    },
+    {
+     "id": "E2c",
+     "published_text": [
+      {
+       "where": "Abstract",
+       "text": "real autonomous coding cadence sits firmly inside the trap regime, vindicating [P1]'s empirical finding under a corrected mechanism"
+      }
+     ],
+     "correction": "This holds for the harness, model and session lengths measured, and Paper 2's own limitations section said so: the cadence came from 'a small-model loop on small repos (a lower bound for frontier loops—the deployments most likely to enter the transition band are exactly the ones not measured)'. The abstract claimed more than that limitation allowed. A companion paper finds that a production agent harness driving frontier models acts more slowly than Paper 2's loop, in a comparison that also changes model vendor and task set, and that on its shorter sessions the monitor was starved of evidence rather than trapped: no session reached the clamp. Whether the trap closes depends on cadence and session length; it is not a general property of autonomous coding.",
+     "disposition": "Corrected in Paper 2 itself: arXiv v2 quotes this correction verbatim in its §3 erratum and narrows the abstract's phrase to 'the measured cadence' (branch paper2-arxiv-v2). Self-contained: it carries no Paper 3 figure. The cadences and the starvation result are Paper 3's (§6.2).",
+     "source": "PHASE_C2_REPORT.md (c64089e); WARNING_SIGN_BRACKETING.md (00cd2bf)"
+    }
+   ],
+   "what_stands": "Paper 2's central result — wall-clock-calibrated leaky integrators have two regimes and a sample-time CUSUM is exactly invariant to Δt — and its dt = 0 erratum to Paper 1."
+  }
+ ]
+}

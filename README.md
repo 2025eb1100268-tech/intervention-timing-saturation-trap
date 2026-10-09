@@ -1,16 +1,38 @@
 # Affect-Based Runtime Monitoring of Autonomous Agents — Reproducibility Releases
 
-This repository holds the public reproducibility material for two companion papers
+This repository holds the public reproducibility material for three companion papers
 by **Manvendra Modgil (Modint Intelligence)** on why affect-/state-based runtime
-monitors fail to time interventions on autonomous coding agents.
+monitors fail to time interventions on autonomous coding agents, and on the design
+choices stateful runtime monitors make.
 
 | | Paper | Material |
 |---|---|---|
 | **Paper 1** | *The Saturation Trap and the Subjectivity of Intervention Timing* — arXiv:[2606.04296](https://arxiv.org/abs/2606.04296) | top level: `labels/`, `scripts/`, `results/` |
-| **Paper 2** | *Bistable by Construction: Wall-Clock-Calibrated State Monitors Have No Moment-Detection Regime at Agent Cadence* (companion to Paper 1) | `paper2/` |
+| **Paper 2** | *Bistable by Construction: Wall-Clock-Calibrated State Monitors Have No Moment-Detection Regime at Agent Cadence* — arXiv:[2606.19386](https://arxiv.org/abs/2606.19386) | `paper2/` |
+| **Paper 3** | *SoK: Clocks, Counts, and Evidence Floors in Stateful Runtime Monitoring of AI Agents* | `paper3/`; the checks it contributes are a separate package, [monitor_invariance](https://github.com/2025eb1100268-tech/monitor_invariance) |
 
-Both papers use the same proprietary HEART engine as a fixed, unmodified diagnostic
-probe (see "Not included" below); neither release ships the engine.
+All three papers use the same proprietary HEART engine as a fixed, unmodified
+diagnostic probe (see "Not included" below); no release ships the engine.
+
+---
+
+## Paper 3 — `paper3/`
+
+Paper 3 audits fourteen stateful monitors from the AI control literature and twenty
+deployed clock-indexed systems on three design axes, and measures the evidence floor
+on real agent sessions. `paper3/README.md` maps each section and appendix of the
+paper to the files behind it; `paper3/MANIFEST.md` lists every file with its sha256.
+
+- **`paper3/data/swebench_pilot/`** — the generated reports, the four pre-registrations
+  (Phases 9, 9 addendum C, 9C, 9D) and the summary JSON.
+- **`paper3/data/live_runs/`** — the pilot, the clean-protocol replication and the
+  Opus 5.5 hold-out, both as logged by the hook (`phase_c2/`) and as rebuilt from the
+  session transcripts with failed calls restored (`phase_c2_canonical/`).
+- **`paper3/scripts/`** — the generators (transparency; those that replay the engine
+  need it to run).
+
+Local paths in the released files are scrubbed; raw SWE-bench-Verified trajectories
+and raw session transcripts are not redistributed.
 
 ---
 
