@@ -1,6 +1,6 @@
 # MANIFEST — Paper 3 data release
 
-Exported by `scripts/export_paper3_release.py` from heart-observer `6b8179686f72`. 270 files, 3.42 MB. Local paths scrubbed: 1466 replacements (`<repo>`, `<home>`, `<project>`, `<user>`); no other content is altered. sha256 is of the file as released.
+Exported by `scripts/export_paper3_release.py` from heart-observer `3e5ad4ad66d6`. 270 files, 3.42 MB. Local paths scrubbed: 1466 replacements (`<repo>`, `<home>`, `<project>`, `<user>`); no other content is altered. sha256 is of the file as released.
 
 | file | bytes | sha256 | paths scrubbed |
 |---|---|---|---|
@@ -211,7 +211,7 @@ Exported by `scripts/export_paper3_release.py` from heart-observer `6b8179686f72
 | `data/swebench_pilot/BUDGET_CADENCE_REPORT.md` | 8685 | `250f929d6af41671` |  |
 | `data/swebench_pilot/BUDGET_CEILING_9C.md` | 7861 | `03dcdc82912da5fe` |  |
 | `data/swebench_pilot/CLIFF_RECOMPUTE.md` | 4954 | `9857b960b3478aee` |  |
-| `data/swebench_pilot/CONTROL_MONITOR_CENSUS.md` | 12652 | `ce75a9be4822df0b` |  |
+| `data/swebench_pilot/CONTROL_MONITOR_CENSUS.md` | 12652 | `5e5c6083687455d1` |  |
 | `data/swebench_pilot/DEPLOYED_MONITOR_CENSUS.md` | 10262 | `bf6be3e8848bf1ba` |  |
 | `data/swebench_pilot/DEPLOYED_SPLIT.md` | 5277 | `e7c467d8166061d1` |  |
 | `data/swebench_pilot/EXTERNAL_MONITOR_CHECKS.md` | 22770 | `22fdae520463b18f` |  |
@@ -243,7 +243,7 @@ Exported by `scripts/export_paper3_release.py` from heart-observer `6b8179686f72
 | `data/swebench_pilot/external_monitors/deployed_hunt.json` | 99981 | `a83c5ddf04ca2530` |  |
 | `data/swebench_pilot/external_monitors/deployed_split.json` | 5358 | `758533b86b453f65` |  |
 | `data/swebench_pilot/external_monitors/extraction.json` | 195943 | `010eb834b16c14ff` | 2 |
-| `data/swebench_pilot/external_monitors/table2.json` | 51437 | `63d5063d01161c7c` |  |
+| `data/swebench_pilot/external_monitors/table2.json` | 52272 | `ddd78ae6bfb0b81a` |  |
 | `data/swebench_pilot/hypothesis_scorecard.json` | 7084 | `b2fec88c4341d193` |  |
 | `data/swebench_pilot/observer_capability_audit.json` | 4751 | `6dddf33ae3373131` |  |
 | `data/swebench_pilot/withdrawals.json` | 13492 | `e319ee6b0a7c6644` |  |
@@ -252,7 +252,7 @@ Exported by `scripts/export_paper3_release.py` from heart-observer `6b8179686f72
 | `scripts/build_9c_canonical.py` | 11161 | `fb7093bea54cf443` |  |
 | `scripts/c2_source.py` | 2061 | `49a8c639b0d9ea7b` |  |
 | `scripts/cliff_recompute_exec.py` | 12180 | `77c95e72b42100ba` |  |
-| `scripts/control_monitor_census.py` | 15776 | `8133bc167208ea84` |  |
+| `scripts/control_monitor_census.py` | 15854 | `ca41b1ea2ce7a684` |  |
 | `scripts/deployed_monitor_census.py` | 17063 | `a4945c178d91e4b1` |  |
 | `scripts/deployed_split.py` | 13519 | `3e82bc85f26057c0` |  |
 | `scripts/external_monitor_checks.py` | 31169 | `4b1843fd576dddc6` |  |

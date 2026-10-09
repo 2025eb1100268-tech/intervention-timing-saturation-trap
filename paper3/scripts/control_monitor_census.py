@@ -272,6 +272,7 @@ def main() -> int:
         "name": m["name"], "paper": m["paper"], "how": m["how"],
         "cells": dict(zip(("monitor", "forgets_on", "can_fall", "n_min", "episode"), m["cells"])),
         "n1_path": m["n1"], "harm_model": m["harm_model"],
+        "forgetting_basis": m["forgetting_basis"], "can_fall": m["can_fall"],
         "evidence_source": m["evidence_source"], "floor_kind": floor_kind(m["n_min"]),
         "verifier": ({k: raw[m["name"]].get(k) for k in
                       ("n_min", "episode_length", "single_step_escape", "corrections", "url")}
