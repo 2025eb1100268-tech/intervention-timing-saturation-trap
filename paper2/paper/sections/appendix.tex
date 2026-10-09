@@ -3,7 +3,7 @@
 \subsection{Trajectory selection}
 15 selected, 11 skipped for length, 0 parse failures (first 15 by instance id
 with 25--70 actions that parse cleanly, excluding the 5 pilot trajectories).
-Full skip log released with the artifacts.
+Full skip log released with the artefacts.
 
 \subsection{Per-trajectory tables}
 Full saturation table ($\Delta t = 0$), per-trajectory critical-$\Delta t$
@@ -13,31 +13,29 @@ intervals, and zero-signal coverage are released as
 \subsection{Pre-registration provenance and hypothesis scorecard}
 \label{app:prereg}
 Pre-registration documents for all phases are released verbatim
-(\texttt{PREREGISTRATION\_PHASE7.md}, \texttt{PREREGISTRATION\_PHASE8.md}).
+(\texttt{PREREGISTRATION\_\allowbreak PHASE7.md}, \texttt{PREREGISTRATION\_\allowbreak PHASE8.md}).
 Full hypothesis scorecard: H1 partial (T3 yes; T1 borderline; T2 vacuous; T4
 no), H2 failed, H3 superseded by the $\Delta t$ audit, H4 pending annotation, H5
 not supported (with the C4 exploratory complement), H6 supported, H7 partial
 (two-regime supported; strict band conjunct failed 16/20), H8 supported (exact
 invariance 20/20), H9 supported (max 2).
 
-\paragraph{Provenance check for the Section~\ref{sec:burst} disclosure (resolving
-the draft's \texttt{[CONFIRM]} marker).} The released
+\paragraph{Provenance check for the Section~\ref{sec:burst} disclosure.} The released
 \texttt{PREREGISTRATION\_PHASE7.md} states H5 and H6 verbatim as ``\emph{H5:
 under C2/C3, A6 exhibits flicker (median crossing count $>2$) on trajectories
 whose uniform-$\Delta t$ critical interval brackets the $\Delta t$ median}'' and
 ``\emph{H6: T3 net fire count remains $\le 3$ under all conditions},'' which are
 exactly the hypotheses scored in \texttt{NONUNIFORM\_REPORT.md}; C4 and the
-``analytic expectation'' subsection are present as a separately labeled
-\emph{exploratory} block. \textbf{Caveat for the author:} the artifact tree was
-\emph{not} under version control during the study, so a git diff of this file
-does not exist. The evidence supporting ``unchanged before execution'' is
-therefore (i) the file's text matches the report's scored wording exactly, and
-(ii) filesystem modification times order the pre-registration
-(\texttt{2026-06-10 21:26}) before the results report
-(\texttt{2026-06-10 21:30}). The draft's phrase ``git-timestamped'' in
-Section~\ref{sec:setup} should be softened to ``timestamped'' (or the repository
-placed under git and the prereg commits cited) before submission, since
-filesystem mtimes are weaker provenance than signed commits.
+``analytic expectation'' subsection are present as a separately labelled
+\emph{exploratory} block. The artefact tree was \emph{not} under version control
+during the study, so no git diff of this file exists from the study period; the
+repository is placed under git only for this release. The evidence supporting
+``written before execution'' is therefore (i) the file's text matches the
+report's scored wording exactly, and (ii) filesystem modification times order
+the pre-registration (\texttt{2026-06-10 21:26}) before the results report
+(\texttt{2026-06-10 21:30}). We rely on these two checks rather than on signed
+commit timestamps, which are stronger provenance but were not available during
+the study; Section~\ref{sec:setup} is worded accordingly.
 
 \subsection{Scaling rule}
 Derivation and both estimators (full-trajectory $r$ and pre-saturation $r$),

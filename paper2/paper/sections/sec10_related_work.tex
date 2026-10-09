@@ -5,7 +5,7 @@
 A growing line of work interrupts an agent by checking its trajectory against
 safety conditions. AgentSpec~\cite{agentspec} compiles user-specified rules
 (trigger--predicate--enforce) and fires when a predicate matches the current
-action; AgentHarm~\cite{agentharm} benchmarks harmful agent behavior that such
+action; AgentHarm~\cite{agentharm} benchmarks harmful agent behaviour that such
 monitors aim to catch. These systems threshold per-action predicates rather
 than an accumulated, time-decayed statistic, and so lie outside the
 leaky-integrator class our result concerns. ProbGuard~\cite{probguard} is the
@@ -33,7 +33,7 @@ our T3 trigger uses is the Schmitt trigger~\cite{schmitt1938}, the canonical
 bistable detector with separate set/reset levels.
 
 \textbf{Calibrated-decay monitors and label variation.}
-Wall-clock-calibrated leaky integrators---exponential-moving-average behavioral
+Wall-clock-calibrated leaky integrators---exponential-moving-average behavioural
 baselines and drift statistics with fixed half-lives---are common in production
 agent and service monitoring; they are precisely the family our analysis places
 at risk when the sampling cadence is not the cadence the half-life was tuned
