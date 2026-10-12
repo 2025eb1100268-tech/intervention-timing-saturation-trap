@@ -1,0 +1,94 @@
+{
+  "generator": "scripts/elastic_schedule.py",
+  "rule": {
+    "file": "rules/integrations/aws_bedrock/aws_bedrock_multiple_topic_policy_blocks_detected.toml",
+    "commit": "c5678aa55127177cd11a23aab25a8715854bdae7",
+    "interval_s": 600,
+    "lookback_s": 3600,
+    "range": "closed",
+    "fires_on_events": 6
+  },
+  "horizon_s": 604800,
+  "evading_spacing_above_s": 720.0,
+  "burst": [
+    {
+      "spacing_s": 600.0,
+      "exact_share": 1.0,
+      "formula_share": 1.0,
+      "monte_carlo_share": 1.0,
+      "monte_carlo_z": 0.0
+    },
+    {
+      "spacing_s": 650.0,
+      "exact_share": 0.5833333333333334,
+      "formula_share": 0.5833333333333334,
+      "monte_carlo_share": 0.58328,
+      "monte_carlo_z": 0.03
+    },
+    {
+      "spacing_s": 700.0,
+      "exact_share": 0.16666666666666666,
+      "formula_share": 0.16666666666666666,
+      "monte_carlo_share": 0.16633,
+      "monte_carlo_z": 0.29
+    },
+    {
+      "spacing_s": 719.9,
+      "exact_share": 0.0008333333333333334,
+      "formula_share": 0.0008333333333333334,
+      "monte_carlo_share": 0.0008,
+      "monte_carlo_z": 0.37
+    }
+  ],
+  "sustained_within_week": [
+    {
+      "spacing_s": 700.0,
+      "exact_share": 1.0,
+      "monte_carlo_share": 1.0,
+      "monte_carlo_z": 0.0
+    },
+    {
+      "spacing_s": 710.0,
+      "exact_share": 1.0,
+      "monte_carlo_share": 1.0,
+      "monte_carlo_z": 0.0
+    },
+    {
+      "spacing_s": 719.0,
+      "exact_share": 1.0,
+      "monte_carlo_share": 1.0,
+      "monte_carlo_z": 0.0
+    },
+    {
+      "spacing_s": 719.5,
+      "exact_share": 1.0,
+      "monte_carlo_share": 1.0,
+      "monte_carlo_z": 0.0
+    },
+    {
+      "spacing_s": 719.9,
+      "exact_share": 0.6966666666666667,
+      "monte_carlo_share": 0.7,
+      "monte_carlo_z": 0.46
+    },
+    {
+      "spacing_s": 720.1,
+      "exact_share": 0.0,
+      "monte_carlo_share": 0.0,
+      "monte_carlo_z": 0.0
+    }
+  ],
+  "sweep_all_caught_within_week": {
+    "from_s": 600.0,
+    "to_s": 700.0,
+    "step_s": 0.1,
+    "spacings_checked": 1001,
+    "all_caught": true
+  },
+  "monte_carlo": {
+    "seed": 20261012,
+    "phases_burst": 100000,
+    "phases_sustained": 4000,
+    "tolerance": "4 standard errors; exact agreement where the exact share is 0 or 1"
+  }
+}

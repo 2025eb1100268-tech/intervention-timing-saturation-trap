@@ -23,7 +23,8 @@ threshold. For a monitor firing at N events inside a T-second window that is
 which is arithmetic, not a measurement, and is the same starvation bound as
 r_max = E / N_min with the window supplying E.
 
-Run from repo root:  python scripts/deployed_monitor_census.py
+Run from repo root, after scripts/elastic_schedule.py:
+    python scripts/deployed_monitor_census.py
 """
 from __future__ import annotations
 
@@ -35,6 +36,8 @@ from typing import List
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "swebench_pilot" / "DEPLOYED_MONITOR_CENSUS.md"
+# The Elastic rule's schedule figures, from scripts/elastic_schedule.py.
+SCHEDULE = ROOT / "data" / "swebench_pilot" / "external_monitors" / "elastic_schedule.json"
 
 # N = events needed inside the window; T = window in seconds.
 # purpose: 'detect'  = fires on suspected misbehaviour (a safety monitor)
@@ -145,7 +148,18 @@ def sha() -> str:
         return "(unknown)"
 
 
+def _burst(sched: dict, s: float) -> float:
+    return next(r for r in sched["burst"] if r["spacing_s"] == s)["exact_share"]
+
+
+def _sustained(sched: dict, s: float) -> dict:
+    return next(r for r in sched["sustained_within_week"] if r["spacing_s"] == s)
+
+
 def main() -> int:
+    if not SCHEDULE.exists():
+        raise SystemExit(f"{SCHEDULE.relative_to(ROOT)} missing: run scripts/elastic_schedule.py first")
+    sched = json.loads(SCHEDULE.read_text(encoding="utf-8"))
     O: List[str] = []
     w = O.append
     w("# Deployed agent monitors whose memory is wall-clock")
@@ -240,18 +254,25 @@ def main() -> int:
       "attacker:")
     w("  - at or below 600 s, a run always lands in the opening — always caught;")
     w("  - between 600 and 720 s, caught with probability (3600 − 5*s*)/600 — "
-      "0.58 at 650 s, 0.17 at 700 s;")
+      f"{_burst(sched, 650):.2f} at 650 s, {_burst(sched, 700):.2f} at 700 s;")
     w("  - at exactly 720 s the opening has zero width, and it fires only if a "
       "run lands on the sixth ingest to the second — a knife-edge set by clock "
       "alignment and ingest jitter, not something to cite as safe.")
+    edge = _sustained(sched, 719.9)
+    sweep = sched["sweep_all_caught_within_week"]
     w("- **A persistent attacker does not get the burst's odds.** Probing "
       "indefinitely at a fixed spacing below 720 s gives the schedule a fresh "
       "chance with every further probe, and its phase walks through the opening: "
-      "in simulation, every attacker spaced at 700 s or less is caught within a "
-      "week, and 72% are even at 719.9 s. Only spacing above 720 s is safe for a "
-      "campaign. (Both the burst formula and the sustained result were checked "
-      "by simulation over random schedule phases; the formula matched to within "
-      "sampling error at every spacing tested.)")
+      f"every attacker spaced at {sweep['to_s']:g} s or less is caught within a "
+      f"week, and {edge['exact_share']:.0%} are even at 719.9 s "
+      f"({edge['exact_share']:.2%} of schedule phases, exactly). Only spacing "
+      "above 720 s is safe for a campaign. (Computed by "
+      "`scripts/elastic_schedule.py` in exact arithmetic over schedule phases, "
+      f"at every spacing from {sweep['from_s']:g} to {sweep['to_s']:g} s in {sweep['step_s']:g} s steps; "
+      "each figure is checked by a Monte Carlo over random phases that steps "
+      f"through the runs and counts probes, {edge['monte_carlo_share']:.1%} at "
+      "719.9 s. Source: "
+      "[`external_monitors/elastic_schedule.json`](external_monitors/elastic_schedule.json).)")
     w("- **Which clock.** The rule sets `timestamp_override = \"event.ingested\"`, "
       "so the accumulator is indexed on **ingest time**, not on the agent's own "
       "action time. An attacker's spacing is therefore only as precise as the "

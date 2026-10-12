@@ -1,6 +1,6 @@
 # Paper 3 — data and generators
 
-Release for *SoK: Clocks, Counts, and Evidence Floors in Stateful Runtime
+Release for *Clocks, Counts, and Evidence Floors in Stateful Runtime
 Monitoring of AI Agents* (Modgil, 2026). The four checks the paper contributes
 are a separate, standalone package:
 [monitor_invariance](https://github.com/2025eb1100268-tech/monitor_invariance)

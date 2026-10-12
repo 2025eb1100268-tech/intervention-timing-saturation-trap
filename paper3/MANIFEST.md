@@ -1,6 +1,6 @@
 # MANIFEST — Paper 3 data release
 
-Exported by `scripts/export_paper3_release.py` from heart-observer `3e5ad4ad66d6`. 270 files, 3.42 MB. Local paths scrubbed: 1466 replacements (`<repo>`, `<home>`, `<project>`, `<user>`); no other content is altered. sha256 is of the file as released.
+Exported by `scripts/export_paper3_release.py` from heart-observer `64f539435090`. 272 files, 3.43 MB. Local paths scrubbed: 1466 replacements (`<repo>`, `<home>`, `<project>`, `<user>`); no other content is altered. sha256 is of the file as released.
 
 | file | bytes | sha256 | paths scrubbed |
 |---|---|---|---|
@@ -212,7 +212,7 @@ Exported by `scripts/export_paper3_release.py` from heart-observer `3e5ad4ad66d6
 | `data/swebench_pilot/BUDGET_CEILING_9C.md` | 7861 | `03dcdc82912da5fe` |  |
 | `data/swebench_pilot/CLIFF_RECOMPUTE.md` | 4954 | `9857b960b3478aee` |  |
 | `data/swebench_pilot/CONTROL_MONITOR_CENSUS.md` | 12652 | `5e5c6083687455d1` |  |
-| `data/swebench_pilot/DEPLOYED_MONITOR_CENSUS.md` | 10262 | `bf6be3e8848bf1ba` |  |
+| `data/swebench_pilot/DEPLOYED_MONITOR_CENSUS.md` | 10463 | `1baec6fcd9a1b5d4` |  |
 | `data/swebench_pilot/DEPLOYED_SPLIT.md` | 5277 | `e7c467d8166061d1` |  |
 | `data/swebench_pilot/EXTERNAL_MONITOR_CHECKS.md` | 22770 | `22fdae520463b18f` |  |
 | `data/swebench_pilot/HOOK_COVERAGE_AUDIT.md` | 3105 | `21fa572b17d83ab6` |  |
@@ -242,6 +242,7 @@ Exported by `scripts/export_paper3_release.py` from heart-observer `3e5ad4ad66d6
 | `data/swebench_pilot/external_monitors/census_fanout.json` | 62615 | `7cbcb9d7dc5d1a64` |  |
 | `data/swebench_pilot/external_monitors/deployed_hunt.json` | 99981 | `a83c5ddf04ca2530` |  |
 | `data/swebench_pilot/external_monitors/deployed_split.json` | 5358 | `758533b86b453f65` |  |
+| `data/swebench_pilot/external_monitors/elastic_schedule.json` | 2252 | `1ab4e0074001c713` |  |
 | `data/swebench_pilot/external_monitors/extraction.json` | 195943 | `010eb834b16c14ff` | 2 |
 | `data/swebench_pilot/external_monitors/table2.json` | 52272 | `ddd78ae6bfb0b81a` |  |
 | `data/swebench_pilot/hypothesis_scorecard.json` | 7084 | `b2fec88c4341d193` |  |
@@ -253,8 +254,9 @@ Exported by `scripts/export_paper3_release.py` from heart-observer `3e5ad4ad66d6
 | `scripts/c2_source.py` | 2061 | `49a8c639b0d9ea7b` |  |
 | `scripts/cliff_recompute_exec.py` | 12180 | `77c95e72b42100ba` |  |
 | `scripts/control_monitor_census.py` | 15854 | `ca41b1ea2ce7a684` |  |
-| `scripts/deployed_monitor_census.py` | 17063 | `a4945c178d91e4b1` |  |
+| `scripts/deployed_monitor_census.py` | 18225 | `c0265d1b7111a567` |  |
 | `scripts/deployed_split.py` | 13519 | `3e82bc85f26057c0` |  |
+| `scripts/elastic_schedule.py` | 7306 | `48721253b36f106c` |  |
 | `scripts/external_monitor_checks.py` | 31169 | `4b1843fd576dddc6` |  |
 | `scripts/generality_sweep.py` | 15155 | `c95e411caeeab1e6` |  |
 | `scripts/hook_coverage_audit.py` | 9588 | `a1311a3d87baa042` | 1 |
